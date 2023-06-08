@@ -1,9 +1,15 @@
+<script>
+	import config from '$lib/../../config.js'
+
+</script>
+
 <nav>
-	<h1><a href="/">Sacramento Campaign Cash</a></h1>
+	<h1><a href="/">{config.title}</a></h1>
 
 	<div>
-		<a href="/body/sac-city">City Council</a>
-		<a href="/body/sac-county">County Board of Supervisors</a>
+		{#each config.bodies as b}
+			<a href="/body/{b.body}">{b.name}</a>
+		{/each}
 	</div>
 </nav>
 

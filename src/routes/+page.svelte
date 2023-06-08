@@ -1,29 +1,29 @@
 <script>
+  import { sum } from 'd3-array'
+  import config from '$lib/../../config.js'
   import { formatDollar, formatGenerated } from "$lib/format.js";
+
   export let data = {};
 
-  const { generated, sacCityTotal, sacCountyTotal } = data;
-  const total = sacCityTotal + sacCountyTotal;
+  const { generated, totals } = data;
+  const total = sum(totals, d => d.total)
 
   const blocks = [
     {
       label: "Raised by current local elected officials",
       value: total,
     },
-    {
-      label: "City Council",
-      href: "/body/sac-city",
-      value: sacCityTotal,
-    },
-    {
-      label: "Board of Supervisors",
-      href: "/body/sac-county",
-      value: sacCountyTotal,
-    },
+    ...totals.map(b => {
+      return {
+        label: b.name,
+        href: `/body/${b.body}`,
+        value: b.total
+      }
+    })
   ];
 </script>
 
-<h1>Sacramento campaign cash</h1>
+<h1>{config.title}</h1>
 <p>
   A regularly updated website that tracks the people and organizations that make
   campaign contributions to elected officials in Sacramento.

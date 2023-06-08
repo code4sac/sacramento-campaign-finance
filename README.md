@@ -4,6 +4,9 @@ Pull data from the City and County's campaign finance websites and display the t
 
 [![Update campaign finance data](https://github.com/jeremiak/sacramento-campaign-finance/actions/workflows/update-data.yml/badge.svg)](https://github.com/jeremiak/sacramento-campaign-finance/actions/workflows/update-data.yml)
 
+## Configuration
+
+
 
 ## Scraper methodology
 

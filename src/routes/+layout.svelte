@@ -8,7 +8,7 @@
 	</main>
 
 	<footer>
-		Made by <a href="https://www.jeremiak.com">Jeremia</a> in 2023
+		Made by <a href="https://codeforsacramento.org/">Code for Sacramento</a>
 	</footer>
 </div>
 
