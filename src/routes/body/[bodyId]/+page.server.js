@@ -1,25 +1,25 @@
 import { error } from '@sveltejs/kit';
-import sacCity from '$lib/data-sac-city.json'
-import sacCounty from '$lib/data-sac-county.json'
+import d from '$lib/data.json'
+import config from '$lib/../../config.js'
 
 export async function load({ params }) {
     const { bodyId } = params
+    const configBody = config.bodies.find(d => d.body === bodyId)
 
-    let data, generated
+    if (!configBody) throw error(404)
 
-    if (bodyId === 'sac-city') {
-        data = sacCity.data
-        generated = sacCity.generated
-    } else if (bodyId === 'sac-county') {
-        data = sacCounty.data
-        generated = sacCounty.generated
-    } else {
-        throw error(404)
-    }
+    const data = configBody.legislators.map(legislator => {
+        const match = d.data.find(dd => {
+            const doNamesMatch = dd.name === legislator.name
+            const doTitlesMatch = dd.title === legislator.title
+            return doNamesMatch && doTitlesMatch
+        })
+        return match
+    })
 
     return {
         bodyId,
-        generated,
+        generated: d.generated,
         legislators: data
     }
 }

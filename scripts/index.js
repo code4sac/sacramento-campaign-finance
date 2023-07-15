@@ -1,5 +1,7 @@
+import { promises as fs } from 'fs'
 import Queue from 'p-queue'
 
+import config from "../config.js"
 import aggregate from './aggregate.js'
 import exec from './exec.js'
 import download from "./download.js"
@@ -8,21 +10,11 @@ import transform from "./transform.js"
 import load from "./load.js"
 
 const queue = new Queue({ concurrency: 1 })
-const sitesToScrape = [{
-        entity: "Sacramento City",
-        vendorId: "SAC",
-    },
-    {
-        entity: "Sacramento County",
-        vendorId: "SCO",
-    },
-]
-
 const startTime = new Date()
 console.log(`Starting at ${startTime}`)
 
-sitesToScrape.forEach((site) => {
-    const { entity: agencyName, vendorId: agencyId } = site
+config.bodies.forEach((site) => {
+    const { name: agencyName, vendorId: agencyId } = site
     queue.add(async() => {
         const year = "2023"
         const opts = { agencyName, agencyId, year }
@@ -64,13 +56,29 @@ queue.onIdle().then(async() => {
     const databasePath = 'prisma/data.db'
     await exec(`rm -f ${databasePath}`)
     await load(databasePath)
-    await aggregate('sac-city', { startTime })
-    await aggregate('sac-county', { startTime })
+
+    const aggregated = []
+    const secondQueue = new Queue({ concurrency: 2 })
+
+    config.bodies.forEach((site) => {
+        const { body, legislators } = site
+        secondQueue.add(async() => {
+            const a = await aggregate(legislators, body)
+            aggregated.push(...a)
+        })
+    })
+
+    await secondQueue.onIdle()
 
     const endTime = new Date()
     const durationMs = endTime - startTime
     const durationSec = durationMs / 1000
     const durationMin = durationSec / 60
+
+    await fs.writeFile(`src/lib/data.json`, JSON.stringify({
+        generated: startTime,
+        data: aggregated
+    }))
 
     console.log(
         `Finished at ${endTime}, took about ${Math.ceil(durationMin)} minute${
