@@ -1,6 +1,7 @@
 import { sum } from 'd3-array'
-import sacCity from '$lib/data-sac-city.json'
-import sacCounty from '$lib/data-sac-county.json'
+
+import config from '$lib/../../config.js'
+import data from '$lib/data.json'
 
 function totalInDataset(dataset) {
     const total = sum(dataset, d => {
@@ -11,12 +12,17 @@ function totalInDataset(dataset) {
 }
 
 export function load() {
-    const sacCityTotal = totalInDataset(sacCity.data)
-    const sacCountyTotal = totalInDataset(sacCounty.data)
+    const totals = config.bodies.map(b => {
+        const { body, name } = b
+        const matching = data.data.filter(d => d.body === body)
+        const total = totalInDataset(matching)
+        return {
+            body, name, total
+        }
+    })
 
     return {
-        generated: sacCity.generated,
-        sacCityTotal,
-        sacCountyTotal,
+        generated: data.generated,
+        totals
     }
 }
