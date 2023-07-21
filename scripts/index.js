@@ -36,7 +36,7 @@ config.bodies.forEach((site) => {
             if (e.code === 9) {
                 console.log(`Problem extracting ${f}, skipping it`, e)
             } else {
-                console.error(`Error with extaction`, e.code)
+                console.error(`Error with extraction`, e.code)
             }
             return
         }
