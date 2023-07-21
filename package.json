@@ -36,7 +36,8 @@
         "sass": "^1.52.1",
         "svelte": "^3.48.0",
         "svelte-preprocess": "^4.10.6",
-        "vite": "^3.1.0"
+        "vite": "^3.1.0",
+        "yauzl-promise": "^4.0.0"
     },
     "type": "module"
 }
