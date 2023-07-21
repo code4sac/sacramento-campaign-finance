@@ -3,7 +3,6 @@ import Queue from 'p-queue'
 
 import config from "../config.js"
 import aggregate from './aggregate.js'
-import exec from './exec.js'
 import download from "./download.js"
 import extract from "./extract.js"
 import transform from "./transform.js"
@@ -22,7 +21,7 @@ config.bodies.forEach((site) => {
         const f = `${agencyName} (${agencyId} - ${year})`
 
         console.log(`Ok, running for ${f}`)
-        await exec(`mkdir -p tmp`)
+        await fs.mkdir('tmp', { recursive: true })
 
         console.log(`Downloading ${f}...`)
         await download(opts)
@@ -41,7 +40,7 @@ config.bodies.forEach((site) => {
             return
         }
 
-        await exec(`mkdir -p data`)
+        await fs.mkdir('data', { recursive: true })
         console.log(`Transforming ${f}...`)
         await transform(opts)
         console.log(`Transformed ${f}`)
@@ -54,7 +53,7 @@ config.bodies.forEach((site) => {
 queue.onIdle().then(async() => {
     console.log(`Loading JSON files into one database`)
     const databasePath = 'prisma/data.db'
-    await exec(`rm -f ${databasePath}`)
+    await fs.rm(databasePath, { force: true })
     await load(databasePath)
 
     const aggregated = []
