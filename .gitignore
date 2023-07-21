@@ -6,3 +6,5 @@ tmp
 build
 *.log
 *.db
+.vs/
+.idea/
