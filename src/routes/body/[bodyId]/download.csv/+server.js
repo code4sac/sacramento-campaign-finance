@@ -1,6 +1,6 @@
 import { csvFormat } from 'd3-dsv'
 import { error } from '@sveltejs/kit'
-import config from "../../../../../config.js";
+import config from "/config.js";
 import data from "$lib/data.json";
 
 export function GET({ params }) {
