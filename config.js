@@ -46,32 +46,32 @@ const config = {
       }],
       vendorId: "SAC",
     },
-    {    
-      body: "sac-county",
-      legislators: [{
-        name: "Phil Sterna",
-        title: "Supervisor, District 1",
-        committees: ["1334082", "1374881", "1422227"],
-      }, {
-        name: "Patrick Kennedy",
-        title: "Supervisor, District 2",
-        committees: ["1369509", "1409487", "1456505"],
-      }, {
-        name: "Rich Desmond",
-        title: "Supervisor, District 3",
-        committees: ["1419486"],
-      }, {
-        name: "Sue Frost",
-        title: "Supervisor, District 4",
-        committees: ["1380596"],
-      }, {
-        name: "Pat Hume",
-        title: "Supervisor, District 5",
-        committees: ["1438939"],
-      }],
-      name: "Board of Supervisors",
-      vendorId: "SCO", 
-    },
+    // {    
+    //   body: "sac-county",
+    //   legislators: [{
+    //     name: "Phil Sterna",
+    //     title: "Supervisor, District 1",
+    //     committees: ["1334082", "1374881", "1422227"],
+    //   }, {
+    //     name: "Patrick Kennedy",
+    //     title: "Supervisor, District 2",
+    //     committees: ["1369509", "1409487", "1456505"],
+    //   }, {
+    //     name: "Rich Desmond",
+    //     title: "Supervisor, District 3",
+    //     committees: ["1419486"],
+    //   }, {
+    //     name: "Sue Frost",
+    //     title: "Supervisor, District 4",
+    //     committees: ["1380596"],
+    //   }, {
+    //     name: "Pat Hume",
+    //     title: "Supervisor, District 5",
+    //     committees: ["1438939"],
+    //   }],
+    //   name: "Board of Supervisors",
+    //   vendorId: "SCO", 
+    // },
   ],
 };
 
