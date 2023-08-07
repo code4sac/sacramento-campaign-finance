@@ -12,6 +12,7 @@ const timeout = 120000
 
 export default async function downloadNetfile({ agencyId, year }) {
     const downloadPageUrl = `https://public.netfile.com/pub2/Default.aspx?aid=${agencyId}`
+    console.log({ downloadPageUrl })
     const browser = await puppeteer.launch({ timeout })
     const page = await browser.newPage()
 
@@ -24,6 +25,8 @@ export default async function downloadNetfile({ agencyId, year }) {
     if (page.url() !== downloadPageUrl) {
         await page.goto(downloadPageUrl, { timeout })
     }
+
+    console.log('xx')
 
     const client = await page.target().createCDPSession()
 
