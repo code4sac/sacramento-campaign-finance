@@ -4,11 +4,50 @@ Pull data from the City and County's campaign finance websites and display the t
 
 [![Update campaign finance data](https://github.com/code4sac/sacramento-campaign-finance/actions/workflows/update-data.yml/badge.svg)](https://github.com/code4sac/sacramento-campaign-finance/actions/workflows/update-data.yml)
 
-## Configuration
+## Getting started
 
+This project relies on Node and the associated package manager, `npm`. We recommend using [`nvm`](https://github.com/nvm-sh/nvm/blob/master/README.md) to get the proper version of Node set up on your machine.
 
+Once you have `nvm` installed, change into the project directory and run `nvm use`. That should activate the proper version of Node for the project.
 
-## Scraper methodology
+Next, install the dependencies needed with `npm install`. This might take a few minutes.
+
+You can now run two different commands, depending on what you'd like to do. If you want to run the web app for development use `npm run dev`. By default, the application runs at [http://127.0.0.1:3000/](http://127.0.0.1:3000/).
+
+The application is built using [SvelteKit](https://kit.svelte.dev). If you're unfamiliar with the syntax or project structure we recommend you go through the "Getting Started" and "Core Concepts" sections in [the SvelteKit documentation](https://kit.svelte.dev/docs/introduction).
+
+## Data generation
+
+If you'd like to run the scraper, use `node scripts/index.js`.
+
+The web scraper requires Node and sqlite-utils.
+
+### Install [sqlite-utils](https://sqlite-utils.datasette.io/en/stable/installation.html)
+
+#### Mac
+```shell
+brew install sqlite-utils
+```
+
+#### Windows and Linux
+```shell
+pipx install sqlite-utils
+```
+
+Windows and Linux require [pipx](https://pypa.github.io/pipx/installation/) to install sqlite-utils.
+
+#### Windows Install pipx
+```shell
+py -3 -m pip install --user pipx
+py -3 -m pipx ensurepath
+```
+
+#### Linux Mint (Ubuntu) Install pipx
+```shell
+sudo apt install pipx
+```
+
+### Scraper methodology
 
 Runs from `scripts/index.js`, which calls out to the other files in `scripts/`. It:
 1. downloads a single year, usually the current year, from the two portals as a ZIP archive (`download.js`)
