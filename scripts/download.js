@@ -12,7 +12,7 @@ const timeout = 120000
 
 export default async function downloadNetfile({ agencyId, year }) {
     const downloadPageUrl = `https://public.netfile.com/pub2/Default.aspx?aid=${agencyId}`
-    const browser = await puppeteer.launch({ headless: "new", timeout })
+    const browser = await puppeteer.launch({ timeout })
     const page = await browser.newPage()
 
     async function goto() {
