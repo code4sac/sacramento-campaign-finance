@@ -12,7 +12,7 @@ const timeout = 120000
 
 export default async function downloadNetfile({ agencyId, year }) {
     const downloadPageUrl = `https://public.netfile.com/pub2/Default.aspx?aid=${agencyId}`
-    const browser = await puppeteer.launch({ timeout })
+    const browser = await puppeteer.launch({ headless: "new", timeout })
     const page = await browser.newPage()
 
     async function goto() {
@@ -39,7 +39,7 @@ export default async function downloadNetfile({ agencyId, year }) {
     // downloading, let's just wait 5 seconds and see if
     // that works for now. shrug
     // const fileName = `${aid}-${year}.zip`
-    await page.waitForTimeout(7000)
+    await new Promise(resolve => setTimeout(resolve, 7000));
     await browser.close()
     return
 }
