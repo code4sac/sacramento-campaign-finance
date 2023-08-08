@@ -41,5 +41,4 @@ export default async function downloadNetfile({ agencyId, year }) {
     // const fileName = `${aid}-${year}.zip`
     await new Promise(resolve => setTimeout(resolve, 7000));
     await browser.close()
-    return
 }
