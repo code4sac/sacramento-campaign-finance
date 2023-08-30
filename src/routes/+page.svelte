@@ -1,5 +1,6 @@
 <script>
   import { sum } from 'd3-array'
+  import { writable } from 'svelte/store';
   import config from '$lib/../../config.js'
   import { formatDollar, formatGenerated } from "$lib/format.js";
 
@@ -18,9 +19,9 @@
 </script>
 
 <div class="hero">
-  <p class="tagline">
+  <h1 class="tagline">
     Ready to use campaign finance data for Sacramento
-  </p>
+  </h1>
   <div class="total-raised-container">
     <p class="total-raised-amount">
       {formatDollar(total)}
@@ -44,17 +45,16 @@
   </div>
 </div>
 
+<!-- <div class="browse-officials">
+  <div class="browse-officials-header">
+    <h2>Browse by official</h2>
+    <select>
+      <option checked>City Council</option>
+    </select>
+  </div>
+</div> -->
+
 <style lang="scss">
-  h1 {
-    font-size: 36px;
-    line-height: 1.1em;
-    text-align: center;
-  }
-
-  p {
-    margin: 0;
-  }
-
   .hero {
     --column-gutter: 1rem;
     display: grid;
@@ -66,14 +66,25 @@
   }
 
   .tagline {
+    font-size: 36px;
     grid-column: 2/2;
     grid-row: 2/2;
+    line-height: 1.1em;
+    margin: 0;
   }
 
   .total-raised-container {
     border: 1px solid white;
     grid-column: 2/2;
     grid-row: 4/4;
+  }
+
+  .total-raised-amount { 
+    font-size: 36px;
+  }
+
+  .total-raised-label {
+    font-size: 24px;
   }
 
   .blocks-container {
@@ -88,14 +99,16 @@
     font-size: 14px;
     grid-column: 1/4;
     grid-row: 3/4;
+    text-align: center;
   }
 
   .block {
     align-items: center;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #ebebeb;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
   }
 
   .block:nth-child(2) {
@@ -103,12 +116,13 @@
   }
 
   .block-title {
+    font-size: 28px;
     font-weight: 700;
     text-align: center;
   }
 
   .block .amount {
-    color: cornflowerblue;
+    font-size: 28px;
     font-weight: 700;
   }
 

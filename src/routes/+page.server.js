@@ -17,7 +17,10 @@ export function load() {
         const matching = data.data.filter(d => d.body === body)
         const total = totalInDataset(matching)
         return {
-            body, name, total
+            body,
+            name,
+            total,
+            officials: matching
         }
     })
 
