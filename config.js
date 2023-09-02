@@ -22,7 +22,7 @@ const config = {
           }
         ],
       }, {
-        name: "Lisa Kaplin",
+        name: "Lisa Kaplan",
         title: "City Council, District 1",
         committees: [{
           id: "1442529",
