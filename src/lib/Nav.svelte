@@ -32,11 +32,11 @@
     </li>
   </ul>
   <div class="select-container">
-    <select bind:value={$lang}>
+    <!-- <select bind:value={$lang}>
       {#each langs as l}
         <option value={l.id}>{l.label}</option>
       {/each}
-    </select>
+    </select> -->
   </div>
 </nav>
 
