@@ -50,9 +50,9 @@
       {#each committees as committee, i}
         <li>
           <a
-            href={`https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=${committee}`}
+            href={`https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=${committee.id}`}
           >
-            {committee}
+            {committee.name}
           </a>
         </li>
       {/each}
@@ -90,12 +90,10 @@
     margin-top: 0.5rem;
   }
   ul {
-    display: inline-block;
-    list-style-type: none;
-    padding-left: 0;
+    padding-left: 1rem;
   }
   li {
-    display: inline-block;
     padding-right: 0.2rem;
   }
+
 </style>
