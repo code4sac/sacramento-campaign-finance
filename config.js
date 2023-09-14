@@ -1,3 +1,4 @@
+/** @type {Config} */
 const config = {
   title: "Sacramento campaign cash",
   bodies: [
@@ -187,6 +188,89 @@ const config = {
       vendorId: "SCO",
     },
   ],
+  elections: [
+    {
+      year: 2024,
+      contests: [
+        {
+          body: 'City Council',
+          district: null,
+          title: 'Mayor',
+          candidates: [
+            {
+              name: 'Flojuane Cofer',
+              committee: {
+                id: "1459882",
+                name: "FLOJAUNE COFER FOR MAYOR 2024"
+              }
+            },
+            {
+              name: 'Kevin McCarty',
+              committee: {
+                id: "1460934",
+                name: "MC CARTY FOR MAYOR 2024"
+              }
+            },
+            {
+              name: 'Richard Pan',
+              committee: {
+                id: "1461352",
+                name: "DR. RICHARD PAN FOR MAYOR 2024"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 };
 
 export default config;
+
+/** 
+ * @typedef Body
+ * @prop {string} body Body's ID
+ * @prop {string} name Body's name
+ * @prop {Legislator[]} legislators Legislators in body
+ * @prop {Committee[]} committees The candidate committees controlled by the person
+ */
+
+/**
+ * @typedef Candidate
+ * @prop {string} name
+ * @prop {Committee} committee Committee for election
+ */
+
+/** 
+ * @typedef Committee
+ * @prop {string} id Committee FPPC ID
+ * @prop {string} name Committee Name
+ */
+
+/**
+ * @typedef Config
+ * @prop {string} title
+ * @prop {Body[]} bodies
+ * @prop {Election[]} elections
+ */
+
+/**
+ * @typedef Contest
+ * @prop {string} body
+ * @prop {number} district
+ * @prop {string} title
+ * @prop {Candiate[]} candidates
+ */
+
+/**
+ * @typedef Election
+ * @prop {number} year
+ * @prop {Contest[]} contests
+ */
+
+/** 
+ * @typedef Legislator
+ * @prop {string} name Person's name
+ * @prop {string} title Person's office
+ * @prop {Committee[]} committees The candidate committees controlled by the person
+ */
