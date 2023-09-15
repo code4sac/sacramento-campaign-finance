@@ -25,10 +25,10 @@
       <a href="/elections">Elections</a>
     </li>
     <li>
-      <a href="/body/sac-city">City Council</a>
+      <a href="/body/sac-city" target="_self">City Council</a>
     </li>
     <li>
-      <a href="/body/sac-county">Board of Supervisors</a>
+      <a href="/body/sac-county" target="_self">Board of Supervisors</a>
     </li>
   </ul>
   <div class="select-container">
