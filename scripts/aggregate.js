@@ -1,9 +1,5 @@
 import _ from "lodash";
 import { rollup, sum } from "d3-array";
-import Queue from "p-queue";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
 
 function createContributorId(d) {
   return [
@@ -14,61 +10,66 @@ function createContributorId(d) {
   ].join("--");
 }
 
-export default async function aggregate(legislators, body) {
+export default function aggregate(data, legislators, body) {
   const legislatorsWithContributors = [];
-  const queue = new Queue({ concurrency: 2 });
 
   legislators.forEach((legislator) => {
     const { name, title, committees } = legislator;
     const committeeIds = committees.map((d) => d.id);
-    queue.add(async () => {
-      const scheduleA = await prisma.scheduleA.findMany({
-        where: {
-          fppcId: { in: committeeIds },
-        },
-      });
+    const scheduleA = data['schedule-a'].filter((d) => committeeIds.includes(d.fppcId));
+    const scheduleC = data['schedule-c'].filter((d) => committeeIds.includes(d.fppcId));
+    const scheduleAAndC = [...scheduleA, ...scheduleC]
 
-      const rolled = rollup(scheduleA, (contributions) => {
-        const amount = sum(contributions, (d) => d.amount);
-        const {
-          filerName,
-          fppcId,
-          contributorCommitteeId,
-          contributorFirstName,
-          contributorLastName,
-          contributorCity,
-          contributorState,
-          contributorType,
-          contributorZip,
-        } = contributions[0];
-        return {
-          filerName,
-          fppcId,
-          contributorCommitteeId,
-          contributorFirstName,
-          contributorLastName,
-          contributorCity,
-          contributorState,
-          contributorType,
-          contributorZip,
-          amount,
-        };
-      }, createContributorId);
+    const rolled = rollup(scheduleAAndC, (contributions) => {
+      const amount = sum(contributions, (d) => d.amount);
+      const {
+        filerName,
+        fppcId,
+        contributorCommitteeId,
+        contributorFirstName,
+        contributorLastName,
+        contributorCity,
+        contributorState,
+        contributorType,
+        contributorZip,
+      } = contributions[0];
+      const dates = contributions.map(d => ({
+        date: d.date,
+        amount: d.amount
+      }))
+      return {
+        filerName,
+        fppcId,
+        contributorCommitteeId,
+        contributorFirstName,
+        contributorLastName,
+        contributorCity,
+        contributorState,
+        contributorType,
+        contributorZip,
+        amount,
+        dates,
+      };
+    }, createContributorId, d => d.fppcId);
 
-      const contributors = Array.from(rolled).map((d) => d[1]);
-      const sorted = _.orderBy(contributors, ["amount"], ["desc"]);
+    const contributors = []
+    rolled.forEach((d, contributorId) => {
+      d.forEach((data, fppcId) => {
+        contributors.push(data)
+      })
+    })
+    
+    // const contributors = Array.from(rolled).map((d) => d[1]);
+    const sorted = _.orderBy(contributors, ["amount"], ["desc"]);
 
-      legislatorsWithContributors.push({
-        name,
-        title,
-        body,
-        committees,
-        contributors: sorted,
-      });
+    legislatorsWithContributors.push({
+      name,
+      title,
+      body,
+      committees,
+      contributors: sorted,
     });
   });
-
-  await queue.onIdle();
 
   return legislatorsWithContributors;
 }
