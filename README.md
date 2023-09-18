@@ -20,32 +20,7 @@ The application is built using [SvelteKit](https://kit.svelte.dev). If you're un
 
 If you'd like to run the scraper, use `node scripts/index.js`.
 
-The web scraper requires Node and sqlite-utils.
-
-### Install [sqlite-utils](https://sqlite-utils.datasette.io/en/stable/installation.html)
-
-#### Mac
-```shell
-brew install sqlite-utils
-```
-
-#### Windows and Linux
-```shell
-pipx install sqlite-utils
-```
-
-Windows and Linux require [pipx](https://pypa.github.io/pipx/installation/) to install sqlite-utils.
-
-#### Windows Install pipx
-```shell
-py -3 -m pip install --user pipx
-py -3 -m pipx ensurepath
-```
-
-#### Linux Mint (Ubuntu) Install pipx
-```shell
-sudo apt install pipx
-```
+The web scraper requires Node.
 
 ### Scraper methodology
 
@@ -53,5 +28,5 @@ Runs from `scripts/index.js`, which calls out to the other files in `scripts/`. 
 1. downloads a single year, usually the current year, from the two portals as a ZIP archive (`download.js`)
 2. unzips the downloaded file into an Excel file (`extract.js`)
 3. convert that Excel file into a series of `.json` files within `data/` (`transform.js`) - the files are stored here so that we only have to download a single year's worth of data to update
-4. loads the data into a SQL lite database so we can do some subsequent aggregation (`loads.js`)
+4. loads all the data in-memory so we can do some subsequent aggregation (`loads.js`)
 5. create `$lib/data.json` with the data needed for the body route (`aggregate.js`)
