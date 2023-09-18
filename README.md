@@ -18,9 +18,7 @@ The application is built using [SvelteKit](https://kit.svelte.dev). If you're un
 
 ## Data generation
 
-If you'd like to run the scraper, use `node scripts/index.js`.
-
-The web scraper requires Node.
+You'll need Node installed if you'd like to run the scraper. Once you're ready to go, run the command `node scripts/index.js`.
 
 ### Scraper methodology
 
