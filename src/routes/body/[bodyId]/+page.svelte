@@ -39,20 +39,4 @@
 </div>
 
 <style lang="scss">
-  h1 {
-    font-size: 24px;
-    line-height: 28px;
-  }
-
-  @media screen and (min-width: 700px) {
-    h1 {
-      font-size: 40px;
-    line-height: 48px;
-    }
-  }
-
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
 </style>

@@ -77,10 +77,6 @@
     justify-content: space-between;
     margin-top: 1rem;
 
-    p {
-      margin: 0;
-    }
-
     label, select {
       font-size: .75rem;
     }
