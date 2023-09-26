@@ -1,24 +1,28 @@
 import _ from 'lodash'
+import fs from 'fs/promises'
 import Queue from "p-queue"
-import exec from './exec.js'
 
 const years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
 const schedules = ['schedule-a', 'schedule-c']
 
-export default async function load(dbPath) {
+export default async function load() {
+    const data = {
+        'schedule-a': [],
+        'schedule-c': [],
+    }
     const queue = new Queue({ concurrency: 1 })
 
     years.forEach(year => {
         schedules.forEach(schedule => {
             queue.add(async() => {
-                const s = _.startCase(schedule).replace(' ', '')
-                const cmd = `sqlite-utils insert ${dbPath} ${s} data/${schedule}-${year}.json --pk=id`
-                await exec(cmd)
+                const d = await fs.readFile(`data/${schedule}-${year}.json`)
+                const j = JSON.parse(d.toString())
+                data[schedule].push(...j)
             })
         })
     })
 
     await queue.onIdle()
 
-    return
-}
+    return data
+}   
