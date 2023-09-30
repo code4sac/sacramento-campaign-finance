@@ -51,10 +51,8 @@ config.bodies.forEach((site) => {
 })
 
 queue.onIdle().then(async() => {
-    console.log(`Loading JSON files into one database`)
-    const databasePath = 'prisma/data.db'
-    await fs.rm(databasePath, { force: true })
-    await load(databasePath)
+    console.log(`Aggregating across all JSON files`)
+    const allData = await load()
 
     const aggregated = []
     const secondQueue = new Queue({ concurrency: 2 })
@@ -62,7 +60,7 @@ queue.onIdle().then(async() => {
     config.bodies.forEach((site) => {
         const { body, legislators } = site
         secondQueue.add(async() => {
-            const a = await aggregate(legislators, body)
+            const a = await aggregate(allData, legislators, body)
             aggregated.push(...a)
         })
     })
