@@ -45,6 +45,26 @@
   </div>
 </div>
 
+<div class="about">
+  <h2>About the data</h2>
+
+  <h3>Where does the data come from?</h3>
+  <p>The data is scraped from <a href="https://public.netfile.com/pub2/?aid=SAC">the city's financial reports site</a> and <a href="https://public.netfile.com/pub2/?aid=SCO">the county's site</a>. The last time scrape was on {formatGenerated(generated)} California time. The scraper code is <a href="https://github.com/code4sac/sacramento-campaign-finance/blob/main/scripts/index.js">here</a>.</p>
+  
+  <h3>What years does the data represent?</h3>
+  <p>We have scraped all data since 2014, though we only scrape data for the current year regularly.</p>
+
+  <h3>Is the data altered ?</h3>
+  <p>We only do two things with the data:</p>
+  <ol>
+    <li>We normalize some of the contributor names to account for slight spelling differences.</li>
+    <li>We aggregate the contributors by contributor to show the full amount and not the per transaction amount.</li>
+  </ol>
+
+  <h3>What if there's a mistake?</h3>
+  <p>Please let us know by <a href="https://github.com/code4sac/sacramento-campaign-finance/issues/new">opening an issue on Github</a>.</p>
+</div>
+
 <!-- <div class="browse-officials">
   <div class="browse-officials-header">
     <h2>Browse by official</h2>
