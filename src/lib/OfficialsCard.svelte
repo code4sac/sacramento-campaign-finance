@@ -1,12 +1,18 @@
 <script>
+    export let name = "";
+    export let title = "";
 </script>
 
-<div class="card officials-card">
-    <div class="card-header">
-        <h3 class="card-title">Name of Official</h3>
+<!-- <div class="card officials-card">
+    <h3 class="card-title">{name}</h3>
+    <div class="card-secondary">
+        <p class="title">{title}</p>
     </div>
-    <div class="card-body">
-        <p class="text-secondary">Official's District</p>
+</div> -->
+<div class=" officials-card">
+    <div class="">
+        <h3 class="headings">{name}</h3>
+        <p class="title">{title}</p>
     </div>
 </div>
 
@@ -25,10 +31,23 @@
         font-weight: 600;
         line-height: normal;
     }
-    .card-header {
+    .headings {
         padding: 0px;
-    }
-    .text-secondary {
         color: #fff;
+        text-align: left;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .title {
+        color: #fff;
+        text-align: left;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 </style>

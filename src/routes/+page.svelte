@@ -5,6 +5,7 @@
     import { formatDollar, formatGenerated } from "$lib/format.js";
     import Legislator from "$lib/Legislator.svelte";
     import OfficialsCard from "$lib/OfficialsCard.svelte";
+    import { IconArrowNarrowRight } from "@tabler/icons-svelte";
 
     export let data = {};
 
@@ -20,12 +21,52 @@
         };
     });
 
-    //browse officials
-    const officialsData = [
-        { name: "Darrell Steinberg", role: "Mayor", link: "" },
-        { name: "Lisa Kaplan", role: "District 1", link: "" },
+    //browse officials data, manually putting info here until automated
+    //links should go to each official's page once theyre created
+    //This data should really go into another file,
+    export const ccData = [
+        { name: "Darrell Steinberg", title: "Mayor", link: "" },
+        { name: "Lisa Kaplan", title: "City Council, District 1", link: "" },
+        { name: "Sean Loloee", title: "City Council, District 2", link: "" },
+        {
+            name: "Karina Talamantes",
+            title: "City Council, District 3",
+            link: "",
+        },
+        {
+            name: "Katie Valenzuela",
+            title: "City Council, District 4",
+            link: "",
+        },
+        { name: "Caity Maple", title: "City Council, District 5", link: "" },
+        { name: "Eric Guerra", title: "City Council, District 6", link: "" },
+        { name: "Rick Jennings", title: "City Council, District 7", link: "" },
+        { name: "Mai Vang", title: "City Council, District 8", link: "" },
     ];
-    const officalsBlocks = "";
+
+    export const bosData = [
+        { name: "Phil Sterna", title: "Supervisor, District 1", link: "" },
+        { name: "Patrick Kennedy", title: "Supervisor, District 2", link: "" },
+        { name: "Rich Desmond", title: "Supervisor, District 3", link: "" },
+        { name: "Sue Frost", title: "Supervisor, District 3", link: "" },
+        { name: "Pat Hume", title: "Supervisor, District 4", link: "" },
+    ];
+    let officialsData = [];
+    let officialDrop = "";
+    function dropdownData(num) {
+        if (num === 1) {
+            officialDrop = "City Council";
+            officialsData = ccData;
+        } else if (num === 2) {
+            officialDrop = "Board of Supervisors";
+            officialsData = bosData;
+        } else {
+            officialDrop = "All Officials";
+            officialsData = ccData.concat(bosData);
+        }
+    }
+    //defaults data to show all officials
+    dropdownData(0);
 </script>
 
 <div class="hero-tagline">
@@ -34,9 +75,9 @@
 <div class="hero">
     <!-- total amount raised -->
     <div class="total-raised-container">
-        <p class="total-raised-amount">
+        <h2 class="total-raised-amount">
             {formatDollar(total)}
-        </p>
+        </h2>
         <p class="total-raised-label">
             Total amount reported by local officials
         </p>
@@ -49,7 +90,9 @@
                 <div class="amount">{formatDollar(block.value)}</div>
                 <div class="amount-label">Raised</div>
                 <div class="block-link">
-                    <a href={block.href}>Learn more</a>
+                    <a href={block.href} class="btn btn-primary"
+                        >Learn More <IconArrowNarrowRight /></a
+                    >
                 </div>
             </div>
         {/each}
@@ -57,51 +100,51 @@
     </div>
 </div>
 <!-- browse by official boxes -->
-<div>
+<div class="browse-container">
     <div class="browse-tagline">
         <h1>Browse by Official</h1>
         <div class="dropdown browse-dropdown">
             <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                >City Council</a
+                >{officialDrop}</a
             >
             <div class="dropdown-menu">
                 <!-- can have both options OR state manage which option to
                 show depending on what's currently selected -->
-                <a class="dropdown-item" href="#">Board of Supervisors</a>
-                <a class="dropdown-item" href="#">City Council</a>
+                <a
+                    class="dropdown-item"
+                    href="#"
+                    on:click={() => dropdownData(0)}>All Officials</a
+                >
+                <a
+                    class="dropdown-item"
+                    href="#"
+                    on:click={() => dropdownData(1)}>Board of Supervisors</a
+                >
+                <a
+                    class="dropdown-item"
+                    href="#"
+                    on:click={() => dropdownData(2)}>City Council</a
+                >
             </div>
         </div>
     </div>
     <!-- blocks begin -->
     <div class="officials-container">
-        <OfficialsCard />
-        <OfficialsCard />
-        <OfficialsCard />
-        <OfficialsCard />
-        <OfficialsCard />
-        <OfficialsCard />
-        <OfficialsCard />
-        <OfficialsCard />
+        {#each officialsData as card}
+            <OfficialsCard {...card} />
+        {/each}
     </div>
 </div>
 
-<!-- <div class="browse-officials">
-  <div class="browse-officials-header">
-    <h2>Browse by official</h2>
-    <select>
-      <option checked>City Council</option>
-    </select>
-  </div>
-</div> -->
-
 <style lang="scss">
-    \ html,
-    body,
-    div.content {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-    }
+    // trying to get body to fill viewport, did not work
+    // \ html,
+    // body,
+    // div.content {
+    //     width: 100%;
+    //     height: 100%;
+    //     margin: 0;
+    // }
     .hero {
         --column-gutter: 1rem;
         display: grid;
@@ -124,10 +167,16 @@
         background: #09447c;
         color: #fff;
         width: 100%;
+        position: relative;
     }
 
     .tagline {
+        color: #fff;
+        font-family: Inter;
         font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
         grid-column: 2/2;
         grid-row: 2/2;
         line-height: 1.1em;
@@ -135,17 +184,27 @@
     }
 
     .total-raised-container {
-        border: 1px solid white;
+        // border: 1px solid white;
         grid-column: 2/2;
-        grid-row: 4/4;
+        grid-row: 1/4;
     }
 
     .total-raised-amount {
+        color: #000;
+        font-family: Inter;
         font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
     }
 
     .total-raised-label {
+        color: #000;
+        font-family: Inter;
         font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 
     .blocks-container {
@@ -154,6 +213,9 @@
         grid-template-rows: 1fr var(--column-gutter) 1fr;
         grid-column: 4/7;
         grid-row: 2/5;
+        position: absolute;
+        top: 90px;
+        left: 730px;
     }
 
     .blocks-container p {
@@ -168,8 +230,12 @@
         background-color: white;
         border: 1px solid #ebebeb;
         display: flex;
+        padding: 40px;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: flex-end;
+        gap: 20px;
+        width: 310px;
+        height: 310px;
     }
 
     .block:nth-child(2) {
@@ -177,22 +243,40 @@
     }
 
     .block-title {
-        font-size: 28px;
-        font-weight: 700;
+        color: #1e1e1e;
         text-align: center;
+        font-family: Inter;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
     }
 
     .block .amount {
+        color: #4299e1;
+        text-align: center;
+        font-family: Inter;
         font-size: 28px;
+        font-style: normal;
         font-weight: 700;
+        line-height: normal;
+    }
+
+    .block-link > a {
+        color: #fff;
+    }
+    .browse-container {
+        padding: 40px;
     }
     .browse-tagline {
         display: flex;
         justify-content: left;
+        padding-bottom: 20px;
     }
     .browse-dropdown {
         // justify-self: right;
         margin-left: auto;
+        margin-right: 60px;
     }
 
     .officials-container {

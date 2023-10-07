@@ -48,8 +48,8 @@
                 ><IconWorld /> English</a
             >
             <div class="dropdown-menu">
-                <a class="dropdown-item disabled" href="#">Spanish</a>
                 <a class="dropdown-item" href="#">English</a>
+                <a class="dropdown-item disabled" href="#">Spanish</a>
             </div>
         </div>
     </div>
@@ -76,6 +76,7 @@
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        width: 100%;
     }
     .nav-logo {
         color: #1e1e1e;
@@ -130,5 +131,8 @@
         display: flex;
         justify-content: flex-end;
         grid-column: 3;
+    }
+    .dropdown-container {
+        gap: 30px;
     }
 </style>
