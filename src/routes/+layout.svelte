@@ -3,6 +3,7 @@
 
     import Footer from "$lib/Footer.svelte";
     import Nav from "$lib/Nav.svelte";
+    // import "@tabler/core";
 </script>
 
 <Nav />
@@ -18,13 +19,13 @@
         position: relative;
     }
     main {
-        max-width: 90%;
+        // max-width: 90%;
         margin: 0 auto;
     }
 
     @media screen and (min-width: 700px) {
         main {
-            max-width: 90%;
+            // max-width: 90%;
         }
     }
 </style>

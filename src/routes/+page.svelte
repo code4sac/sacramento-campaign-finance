@@ -54,10 +54,10 @@
     let officialsData = [];
     let officialDrop = "";
     function dropdownData(num) {
-        if (num === 1) {
+        if (num === 2) {
             officialDrop = "City Council";
             officialsData = ccData;
-        } else if (num === 2) {
+        } else if (num === 1) {
             officialDrop = "Board of Supervisors";
             officialsData = bosData;
         } else {
@@ -66,7 +66,7 @@
         }
     }
     //defaults data to show all officials
-    dropdownData(0);
+    dropdownData();
 </script>
 
 <div class="hero-tagline">

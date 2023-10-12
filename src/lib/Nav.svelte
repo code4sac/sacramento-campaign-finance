@@ -39,7 +39,6 @@
             >
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Sacramento, CA</a>
-                <a class="dropdown-item disabled" href="#">Fresno, CA</a>
             </div>
         </div>
         <!-- language toggle -->
@@ -49,7 +48,6 @@
             >
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">English</a>
-                <a class="dropdown-item disabled" href="#">Spanish</a>
             </div>
         </div>
     </div>
