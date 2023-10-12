@@ -1,25 +1,24 @@
 <script>
   import Contributors from "./Contributors.svelte";
-  import IE from './IE.svelte'
+  // import IE from './IE.svelte'
 
-  export let candidate = {
-    contributors: [],
-  };
+  export let name = ''
+  export let total = null
+  export let contributors = []
 </script>
 
 <div class="candidate">
-  <div class="candidate-name">{candidate.Name}</div>
-  {#if candidate.total > 0}
+  <div class="candidate-name">{name}</div>
+  {#if total > 0}
   <div class="candidate-stats">
     <p>
-      <span class="monospace">${candidate.total.toLocaleString("en-US")}</span>
-      in direct contributions from {candidate.contributors.length.toLocaleString(
+      <span class="monospace">${total.toLocaleString("en-US")}</span>
+      in direct contributions from {contributors.length.toLocaleString(
         "en-US"
-      )} people, companies, and organizations. Here they are:
+      )} people, companies, and organizations.
     </p>
   </div>
-  <Contributors data={candidate.contributors} />
-  <IE data={candidate.ie} name={candidate.name} />
+  <Contributors data={contributors} />
   {:else}
     <p>Hasn't reported any fundraising yet.</p>
   {/if}
@@ -29,15 +28,9 @@
   .candidate {
     background: #ffffff;
     flex: 1;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
   }
 
   .candidate-name {
     font-weight: 700;
-  }
-
-  .candidate-stats p {
-    height: 3.25rem;
   }
 </style>
