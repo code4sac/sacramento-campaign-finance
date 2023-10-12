@@ -156,15 +156,6 @@
   <p>Please let us know by <a href="https://github.com/code4sac/sacramento-campaign-finance/issues/new">opening an issue on Github</a>.</p>
 </div>
 
-<!-- <div class="browse-officials">
-  <div class="browse-officials-header">
-    <h2>Browse by official</h2>
-    <select>
-      <option checked>City Council</option>
-    </select>
-  </div>
-</div> -->
-
 <style lang="scss">
     // trying to get body to fill viewport, did not work
     // \ html,
