@@ -156,7 +156,7 @@
         </ol>
         
         <h3>Are there contribution limits?</h3>
-        <p>The Fair Political Practices Commission <a href="https://fppc.ca.gov/learn/Contribution-Limits-City-and-County-Candidates.html">sets the limits for local candidates</a>.</a></p>
+        <p>The Fair Political Practices Commission <a href="https://fppc.ca.gov/learn/Contribution-Limits-City-and-County-Candidates.html">sets the limits for local candidates</a>.</p>
 
         <h3>What if there's a mistake?</h3>
         <p>Please let us know by <a href="https://github.com/code4sac/sacramento-campaign-finance/issues/new">opening an issue on Github</a>.</p>
