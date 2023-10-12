@@ -16,7 +16,6 @@
     "license": "CC-BY-SA",
     "dependencies": {},
     "devDependencies": {
-        "@prisma/client": "^5.0.0",
         "@sveltejs/adapter-netlify": "^2.0.8",
         "@sveltejs/kit": "^1.22.3",
         "convert-excel-to-json": "^1.7.0",
@@ -30,7 +29,6 @@
         "p-queue": "^7.3.4",
         "prettier": "^3.0.0",
         "prettier-plugin-svelte": "^3.0.0",
-        "prisma": "^5.0.0",
         "progress": "^2.0.3",
         "puppeteer": "^20.9.0",
         "sass": "^1.64.0",

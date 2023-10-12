@@ -72,6 +72,10 @@ const config = {
             id: "1435034",
             name: "CAITY MAPLE FOR CITY COUNCIL 2022",
           },
+          {
+            id: "1458316",
+            name: "CAITY MAPLE FOR CITY COUNCIL 2026",
+          },
         ],
       }, {
         name: "Eric Guerra",
