@@ -223,6 +223,104 @@ const config = {
               }
             }
           ]
+        },
+        {
+          body: 'City Council',
+          district: 2,
+          title: 'City Council',
+          candidates: [
+            {
+              name: 'Sean Loloee',
+              committee: {
+                id: '1441736',
+                name: 'SEAN LOLOEE FOR CITY COUNCIL 2024'
+              }
+            },
+            {
+              name: 'Kim Davie',
+              committee: {
+                id: '1459590',
+                name: 'DAVIE FOR CITY COUNCIL 2024'
+              }
+            },
+            {
+              name: 'Roger Dickinson',
+              committee: {
+                id: '1461133',
+                name: 'ROGER DICKINSON FOR CITY COUNCIL 2024'
+              }
+            },
+            {
+              name: 'Ramona Landeros',
+              committee: {
+                id: '1460682',
+                name: 'VOTE RAMONA LANDEROS CITY COUNCIL 2024'
+              }
+            },
+            {
+              name: `Tamika L'Ecluse`,
+              committee: {
+                id: '1459299',
+                name: `TAMIKA  L'ECLUSE FOR CITY COUNCIL 2024`
+              }
+            }
+          ]
+        },
+        {
+          body: 'City Council',
+          district: 4,
+          title: 'City Council',
+          candidates: [
+            {
+              name: 'Katie Valenzuela',
+              committee: {
+                id: '1426389',
+                name: 'KATIE VALENZUELA FOR SACRAMENTO CITY COUNCIL 2024'
+              }
+            },
+            {
+              name: 'Phil Pluckebaum',
+              committee: {
+                id: '1457535',
+                name: 'PLUCKEBAUM FOR CITY COUNCIL 2024 '
+              }
+            }
+          ]
+        },
+        {
+          body: 'City Council',
+          district: 6,
+          title: 'City Council',
+          candidates: [
+            {
+              name: 'Eric Guerra',
+              committee: {
+                id: '1431012',
+                name: 'ERIC GUERRA FOR CITY COUNCIL 2024'
+              }
+            },
+            {
+              name: 'Amreet Sandhu',
+              committee: {
+                id: '1460982',
+                name: 'AMREET SANDHU FOR SACRAMENTO CITY COUNCIL 2024'
+              }
+            }
+          ]
+        },
+        {
+          body: 'City Council',
+          district: 8,
+          title: 'City Council',
+          candidates: [
+            {
+              name: 'Mai Vang',
+              committee: {
+                id: '1435334',
+                name: 'MAI VANG FOR CITY COUNCIL 2024'
+              }
+            }
+          ]
         }
       ]
     }

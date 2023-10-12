@@ -1,10 +1,13 @@
 <script>
+  import { orderBy } from 'lodash'
   import Contributors from "./Contributors.svelte";
   // import IE from './IE.svelte'
 
   export let name = ''
   export let total = null
   export let contributors = []
+
+  $: sorted = orderBy(contributors, ['amount', 'contributor'], ['desc', 'asc'])
 </script>
 
 <div class="candidate">
@@ -18,7 +21,7 @@
       )} people, companies, and organizations.
     </p>
   </div>
-  <Contributors data={contributors} />
+  <Contributors data={sorted} />
   {:else}
     <p>Hasn't reported any fundraising yet.</p>
   {/if}

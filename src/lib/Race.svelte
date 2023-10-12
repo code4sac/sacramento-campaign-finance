@@ -4,7 +4,12 @@
 </script>
 
 <div>
-  <h1><a id={data.title}>{data.title}</a></h1>
+  <h1>
+    <a id={`${data.title}-${data.district}`}>
+      {data.title}
+      {#if data.district}{data.district}{/if}
+    </a>
+  </h1>
 
   <ul class="candidates">
     {#each data.candidates as candidate}
