@@ -145,7 +145,7 @@
   <h3>What years does the data represent?</h3>
   <p>We have scraped all data since 2014, though we only scrape data for the current year regularly.</p>
 
-  <h3>Is the data altered ?</h3>
+  <h3>Is the data altered?</h3>
   <p>We only do two things with the data:</p>
   <ol>
     <li>We normalize some of the contributor names to account for slight spelling differences.</li>
