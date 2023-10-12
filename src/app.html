@@ -1,13 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        %sveltekit.head%
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"
+            async
+        ></script>
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" /> %sveltekit.head%
-</head>
-
-<body>
-    <div id="svelte">%sveltekit.body%</div>
-</body>
-
+    <body>
+        <div id="svelte">%sveltekit.body%</div>
+    </body>
 </html>
