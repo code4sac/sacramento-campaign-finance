@@ -1,35 +1,23 @@
 import { error } from "@sveltejs/kit";
-import d from "$lib/data.json";
-import config from "$lib/../../config.js";
 import { rollup, sum } from "d3-array";
 
-function createContributorId(d) {
-  return [
-    d.contributorCommitteeId,
-    d.contributorLastName,
-    d.contributorFirstName,
-    d.contributorZip,
-  ].join("--");
-}
+import createContributorId from "$lib/contributorId.js";
+import config from "$lib/../../config.js";
+import { generated, data } from "$lib/data.json";
 
-export async function load({ params }) {
+export function load({ params }) {
   const { bodyId } = params;
   const configBody = config.bodies.find((d) => d.body === bodyId);
 
   if (!configBody) throw error(404);
 
-  const data = configBody.legislators.map((legislator) => {
-    const match = d.data.find((dd) => {
-      const doNamesMatch = dd.name === legislator.name;
-      const doTitlesMatch = dd.title === legislator.title;
-      return doNamesMatch && doTitlesMatch;
+  const legislators = configBody.legislators.map((legislator) => {
+    const legislatorCommitteeIds = legislator.committees.map(d => d.id)
+    const contributionsToLegislator = data.filter(d => {
+      return legislatorCommitteeIds.includes(d.fppcId)
     });
-    return match;
-  });
 
-  const dataAggregatedAcrossCommittees = data.map((d) => {
-    const { name, title, body, committees, contributors } = d;
-    const rolled = rollup(contributors, (values) => {
+    const rolled = rollup(contributionsToLegislator, (values) => {
       const {
         contributorCommitteeId,
         contributorFirstName,
@@ -52,23 +40,22 @@ export async function load({ params }) {
         dates,
       };
     }, createContributorId);
+
     const arr = []
-    rolled.forEach((data, contributorKey) => {
-        arr.push(data)
+    rolled.forEach(d => {
+        arr.push(d)
     })
 
     return {
-      name,
-      title,
-      body,
-      committees,
-      contributors: arr,
+      ...legislator,
+      contributors: arr
     };
   });
 
+
   return {
     bodyId,
-    generated: d.generated,
-    legislators: dataAggregatedAcrossCommittees,
+    generated,
+    legislators,
   };
 }
