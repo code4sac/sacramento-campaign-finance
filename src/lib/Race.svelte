@@ -4,46 +4,45 @@
 </script>
 
 <div>
-  <h1>
-    <a id={`${data.title}-${data.district}`}>
-      {data.title}
-      {#if data.district}{data.district}{/if}
-    </a>
-  </h1>
+  <div class="hr-text">
+    {data.title}
+    {#if data.district}{data.district}{/if}
+  </div>
 
-  <ul class="candidates">
+  <div class="row">
     {#each data.candidates as candidate}
-      <li class="candidate">
-        <Candidate {...candidate} />
-      </li>
+      <div class="candidate col-sm-6 col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <Candidate {...candidate} />
+          </div>
+        </div>
+      </div>
     {/each}
-  </ul>
+  </div>
 </div>
 
 <style lang="scss">
+.candidate:nth-child(n+2) {
   
-  ul.candidates {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
-    list-style-type: none;
-    padding-left: 0;
-
-    @media screen and (min-width: 700px) {
-      flex-direction: row;      
+  @media screen and (max-width: 576px) {
+    margin-top: 1rem;
     }
+}
+
+// .candidate:nth-child(n+3) {
+//   @media screen and (min-width: 768px) {
+//     margin-top: 1rem;
+//   }
+// }
+
+.candidate:nth-child(n+4) {
+  @media screen and (min-width: 992px) {
+    margin-top: 1rem;
   }
+}
 
-  .candidate {
-    background: #ffffff;
-    flex: 1;
-    margin-top: 0.5rem;
-    min-width: 30%;
+  
+   
 
-    @media screen and (min-width: 700px) {
-      max-width: 50%;
-    }
-  }  
-  </style>
+</style>

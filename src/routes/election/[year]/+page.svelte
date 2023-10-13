@@ -11,22 +11,27 @@
   <title>Following the money in Sacramento elections</title>
 </svelte:head>
 
-<section>
-  <h1>Local elections in {data.year}</h1>
-  <p>The data was retrieved on {generated}.</p>
+<section class="container-xl">
+  <div class="page-header">
+    <div class="row">
+      <div class="col">
+        <div class="page-pretitle">{data.year}</div>
+        <h1 class="page-title">Upcoming elections</h1>
+      </div>
+      <p>The data was retrieved on {generated}.</p>
+    </div>
+  </div>
 
-  <ul class="races">
+  <div class="races">
     {#each races as race}
-      <li class="race">
-        <Race data={race} />
-      </li>
+      <div class="row">
+        <div class="race">
+          <Race data={race} />
+        </div>
+      </div>
     {/each}
-  </ul>
+  </div>
 </section>
 
 <style lang="scss">
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
 </style>
