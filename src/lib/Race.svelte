@@ -1,63 +1,48 @@
 <script>
   import Candidate from './Candidate.svelte'
   export let data = []
-
-  $: candidatesWithNoMoney = data.committees.filter(d => d.total === 0)
 </script>
 
-<section>
-  <h1><a id={data.race}>{data.race}</a></h1>
+<div>
+  <div class="hr-text">
+    {data.title}
+    {#if data.district}{data.district}{/if}
+  </div>
 
-  <ul class="candidates">
-    {#each data.committees as candidate}
-      <li class="candidate">
-        <Candidate {candidate} />
-      </li>
+  <div class="row">
+    {#each data.candidates as candidate}
+      <div class="candidate col-sm-6 col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <Candidate {...candidate} />
+          </div>
+        </div>
+      </div>
     {/each}
-  </ul>
-</section>
+  </div>
+</div>
 
 <style lang="scss">
-  section {
-    color: #212121;
-    margin-bottom: 2.5rem;
-    padding: .5rem;
-    @media screen and (min-width: 700px) {
-      padding: 1.5rem;
-    }
-  }
-
-  h1 {
-    margin-top: 0;
-
-    a {
-      color: white;
-    }
-  }
+.candidate:nth-child(n+2) {
   
-  ul.candidates {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    list-style-type: none;
-    padding-left: 0;
-
-    @media screen and (min-width: 700px) {
-      flex-direction: row;      
+  @media screen and (max-width: 576px) {
+    margin-top: 1rem;
     }
+}
+
+// .candidate:nth-child(n+3) {
+//   @media screen and (min-width: 768px) {
+//     margin-top: 1rem;
+//   }
+// }
+
+.candidate:nth-child(n+4) {
+  @media screen and (min-width: 992px) {
+    margin-top: 1rem;
   }
+}
 
-  .candidate {
-    background: #ffffff;
-    flex: 1;
-    margin-top: 0.5rem;
-    min-width: 30%;
-    padding: 0.5rem;
+  
+   
 
-    @media screen and (min-width: 700px) {
-      margin: 0.5rem;
-      max-width: 50%;
-    }
-  }  
-  </style>
+</style>

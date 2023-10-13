@@ -2,7 +2,6 @@ import { promises as fs } from 'fs'
 import Queue from 'p-queue'
 
 import config from "../config.js"
-import aggregate from './aggregate.js'
 import download from "./download.js"
 import extract from "./extract.js"
 import transform from "./transform.js"
@@ -53,19 +52,27 @@ config.bodies.forEach((site) => {
 queue.onIdle().then(async() => {
     console.log(`Aggregating across all JSON files`)
     const allData = await load()
+    const relevantCommitteeIds = []
+    
+    config.bodies.forEach(body => {
+        const bodyCommitteeIds = body.legislators.map(d => {
+            return d.committees.map(dd => dd.id)
+        }).flat()
 
-    const aggregated = []
-    const secondQueue = new Queue({ concurrency: 2 })
-
-    config.bodies.forEach((site) => {
-        const { body, legislators } = site
-        secondQueue.add(async() => {
-            const a = await aggregate(allData, legislators, body)
-            aggregated.push(...a)
-        })
+        relevantCommitteeIds.push(...bodyCommitteeIds)
     })
 
-    await secondQueue.onIdle()
+    config.elections.forEach(election => {
+        const electionContestCommitteeIds = election.contests.map(contest => {
+            return contest.candidates.map(d => d.committee.id)
+        }).flat()
+
+        relevantCommitteeIds.push(...electionContestCommitteeIds)
+    })
+
+    const filtered = allData.filter(d => {
+        return relevantCommitteeIds.includes(d.fppcId)
+    })
 
     const endTime = new Date()
     const durationMs = endTime - startTime
@@ -74,7 +81,7 @@ queue.onIdle().then(async() => {
 
     await fs.writeFile(`src/lib/data.json`, JSON.stringify({
         generated: startTime,
-        data: aggregated
+        data: filtered
     }))
 
     console.log(

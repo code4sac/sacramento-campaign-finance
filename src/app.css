@@ -9,15 +9,6 @@ body,div.content {
     box-sizing: border-box;
 }
 
-body {
-    background-color: #fff;
-    color: #062726;
-    font-family: "Inter", serif;
-    font-size: 20px;
-    line-height: 1.1em;
-    width:100%;
-}
-
 a {
     color: #1D3557;
 }

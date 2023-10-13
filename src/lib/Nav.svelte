@@ -22,7 +22,7 @@
             <a href="/">Home</a>
         </li>
         <li>
-            <a href="/elections">Elections</a>
+            <a href="/election/2024" target="_self">Upcoming election</a>
         </li>
         <li>
             <a href="/body/sac-city" target="_self">City Council</a>
