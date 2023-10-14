@@ -1,7 +1,6 @@
 <script>
   import { orderBy } from 'lodash'
   import { sum } from "d3-array";
-  import { formatDollar } from "./format";
   import Contributors from "./Contributors.svelte";
   export let name = "";
   export let title = "";
@@ -20,80 +19,123 @@
   $: total = sum(contributors, (d) => d.amount);
 </script>
 
-<div class="legislator">
-  <div class="name-and-title">
-    <div class="name">{name}</div>
-    <div class="title">{title}</div>
-  </div>
-  <div class="totals">
-    <p>
-      Raised {formatDollar(total)} from {contributors.length.toLocaleString(
-        "en-US"
-      )} contributors.
-    </p>
-    <div>
-      <label for="sort-by">
-        Sort by
-      </label>
-      <select id="sort-by" name="sort-by" bind:value={sortKey}>
-        <option value="amount">Amount</option>
-        <option value="contributorLastName">Name</option>
-      </select>
+<div class="hr-text">
+  {title}
+</div>
+
+<div class="legislator card col-sm-8">
+  <div class="card-body">
+    <div class="datagrid">
+      <div class="datagrid-item">
+        <div class="datagrid-title">Name</div>
+        <div class="datagrid-content">{name}</div>
+      </div>
+      <div class="datagrid-item">
+        <div class="datagrid-title">Total received</div>
+        <div class="datagrid-content">${total.toLocaleString("en-US")}</div>
+      </div>
+      <div class="datagrid-item">
+        <div class="datagrid-title">Committees</div>
+        <div class="datagrid-content">
+          <ul class="committees">
+            {#each committees as committee, i}
+              <li>
+                <a
+                  href={`https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=${committee.id}`}
+                >
+                  {committee.name}
+                </a>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      </div>
+      <div class="datagrid-item contributors-grid-item">
+        <div class="datagrid-title">Contributors</div>
+        <div class="datagrid-content contributors">
+          <div class="contributor-count">
+            {contributors.length.toLocaleString(
+              "en-US"
+            )}
+          </div>
+
+          {#if contributors.length > 0}
+            <input  type="checkbox" id={`${name}`}>
+            <label for={`${name}`}>contributors</label>
+            <div class="contributors-container">
+              <Contributors data={sorted} />
+            </div>
+          {/if}
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="contributors">
-    <Contributors data={sorted} />
-  </div>
-  <div class="committees">
-    This data came from the following committees:
-    <ul>
-      {#each committees as committee, i}
-        <li>
-          <a
-            href={`https://cal-access.sos.ca.gov/Campaign/Committees/Detail.aspx?id=${committee.id}`}
-          >
-            {committee.name}
-          </a>
-        </li>
-      {/each}
-    </ul>
   </div>
 </div>
 
+
 <style lang="scss">
   .legislator {
-    border: 1px solid black;
-    margin-bottom: 1rem;
-    padding: 1rem;
+    margin: 0 auto;
   }
-  .name-and-title {
-    display: flex;
-    justify-content: space-between;
+.contributors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1em 1fr;
   }
-  .totals {
-    align-items: center;
-    display: flex;
-    font-size: 1rem;
-    justify-content: space-between;
+
+  input {
+    left: -9999px;
+    position: absolute;
+  }
+
+  label:before {
+    content: 'Show ';
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  :global(:checked ~ label:before) {
+    content: 'Hide ';
+    display: inline-block;
+  }
+
+  .contributor-count {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  label {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    text-align: right;
+  }
+
+  .contributors-container {
+    display: none;
+    max-height: 400px;
     margin-top: 1rem;
-
-    p {
-      margin: 0;
-    }
-
-    label, select {
-      font-size: .75rem;
-    }
+    overflow-y: scroll;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
   }
+
+  :global(:checked ~ .contributors-container) {
+    display: block;
+  }
+
   .committees {
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+    list-style-type: none;
+    padding-left: 0;
   }
-  ul {
-    padding-left: 1rem;
-  }
-  li {
-    padding-right: 0.2rem;
+
+  .contributors-grid-item {
+    grid-column: 1 / 4;
   }
 
 </style>
