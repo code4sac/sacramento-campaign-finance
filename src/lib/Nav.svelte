@@ -1,18 +1,18 @@
 <script>
-    import { IconBuildingSkyscraper, IconWorld } from "@tabler/icons-svelte";
-    import { writable } from "svelte/store";
+    // import { IconBuildingSkyscraper, IconWorld } from "@tabler/icons-svelte";
+    // import { writable } from "svelte/store";
 
-    const langs = [
-        {
-            id: "en",
-            label: "English",
-        },
-        {
-            id: "es",
-            label: "Español",
-        },
-    ];
-    const lang = writable("en");
+    // const langs = [
+    //     {
+    //         id: "en",
+    //         label: "English",
+    //     },
+    //     {
+    //         id: "es",
+    //         label: "Español",
+    //     },
+    // ];
+    // const lang = writable("en");
 </script>
 
 <nav>
@@ -31,8 +31,7 @@
             <a href="/body/sac-county" target="_self">Board of Supervisors</a>
         </li>
     </ul>
-    <div class="dropdown-container">
-        <!-- location toggle -->
+    <!-- <div class="dropdown-container">
         <div class="dropdown">
             <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
                 ><IconBuildingSkyscraper /> Sacramento, CA</a
@@ -41,7 +40,6 @@
                 <a class="dropdown-item" href="#">Sacramento, CA</a>
             </div>
         </div>
-        <!-- language toggle -->
         <div class="dropdown">
             <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
                 ><IconWorld /> English</a
@@ -50,14 +48,7 @@
                 <a class="dropdown-item" href="#">English</a>
             </div>
         </div>
-    </div>
-    <div class="select-container">
-        <!-- <select bind:value={$lang}>
-      {#each langs as l}
-        <option value={l.id}>{l.label}</option>
-      {/each}
-    </select> -->
-    </div>
+    </div> -->
 </nav>
 
 <style lang="scss">
