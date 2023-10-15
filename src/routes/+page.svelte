@@ -1,16 +1,14 @@
 <script>
     import { sum } from "d3-array";
     import { writable } from "svelte/store";
-    import config from "$lib/../../config.js";
-    import { formatDollar, formatGenerated } from "$lib/format.js";
-    import Legislator from "$lib/Legislator.svelte";
+    import { formatDollar, formatGenerated, formatLegislatorAnchorId } from "$lib/format.js";
     import OfficialsCard from "$lib/OfficialsCard.svelte";
     import { IconArrowNarrowRight } from "@tabler/icons-svelte";
 
     export let data = {};
 
     // totals raised
-    const { generated, totals } = data;
+    const { generated, officials, totals } = data;
     const total = sum(totals, (d) => d.total);
 
     const blocks = totals.map((b) => {
@@ -21,48 +19,19 @@
         };
     });
 
-    //browse officials data, manually putting info here until automated
-    //links should go to each official's page once theyre created
-    //This data should really go into another file,
-    export const ccData = [
-        { name: "Darrell Steinberg", title: "Mayor", link: "" },
-        { name: "Lisa Kaplan", title: "City Council, District 1", link: "" },
-        { name: "Sean Loloee", title: "City Council, District 2", link: "" },
-        {
-            name: "Karina Talamantes",
-            title: "City Council, District 3",
-            link: "",
-        },
-        {
-            name: "Katie Valenzuela",
-            title: "City Council, District 4",
-            link: "",
-        },
-        { name: "Caity Maple", title: "City Council, District 5", link: "" },
-        { name: "Eric Guerra", title: "City Council, District 6", link: "" },
-        { name: "Rick Jennings", title: "City Council, District 7", link: "" },
-        { name: "Mai Vang", title: "City Council, District 8", link: "" },
-    ];
 
-    export const bosData = [
-        { name: "Phil Sterna", title: "Supervisor, District 1", link: "" },
-        { name: "Patrick Kennedy", title: "Supervisor, District 2", link: "" },
-        { name: "Rich Desmond", title: "Supervisor, District 3", link: "" },
-        { name: "Sue Frost", title: "Supervisor, District 3", link: "" },
-        { name: "Pat Hume", title: "Supervisor, District 4", link: "" },
-    ];
-    let officialsData = [];
+    const officialsData = writable(officials);
     let officialDrop = "";
     function dropdownData(num) {
         if (num === 2) {
             officialDrop = "City Council";
-            officialsData = ccData;
+            $officialsData = officials.filter(d => d.link.startsWith('/body/sac-city'));
         } else if (num === 1) {
             officialDrop = "Board of Supervisors";
-            officialsData = bosData;
+            $officialsData = officials.filter(d => d.link.startsWith('/body/sac-county'));
         } else {
             officialDrop = "All Officials";
-            officialsData = ccData.concat(bosData);
+            $officialsData = officials;
         }
     }
     //defaults data to show all officials
@@ -103,10 +72,11 @@
 <div class="browse-container">
     <div class="browse-tagline">
         <h1>Browse by Official</h1>
+
         <div class="dropdown browse-dropdown">
-            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                >{officialDrop}</a
-            >
+            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                {officialDrop}
+            </a>
             <div class="dropdown-menu">
                 <!-- can have both options OR state manage which option to
                 show depending on what's currently selected -->
@@ -127,10 +97,12 @@
                 >
             </div>
         </div>
+
+
     </div>
     <!-- blocks begin -->
     <div class="officials-container">
-        {#each officialsData as card}
+        {#each $officialsData as card}
             <OfficialsCard {...card} />
         {/each}
     </div>

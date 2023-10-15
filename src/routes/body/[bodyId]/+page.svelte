@@ -1,6 +1,6 @@
 <script>
     import { sum } from "d3-array";
-    import { formatDollar, formatGenerated } from "$lib/format";
+    import { formatDollar, formatGenerated, formatLegislatorAnchorId } from "$lib/format";
     import Legislator from "$lib/Legislator.svelte";
 
     export let data = {};

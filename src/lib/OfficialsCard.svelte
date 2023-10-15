@@ -1,18 +1,15 @@
 <script>
+    export let link = "";
     export let name = "";
     export let title = "";
 </script>
 
-<!-- <div class="card officials-card">
-    <h3 class="card-title">{name}</h3>
-    <div class="card-secondary">
-        <p class="title">{title}</p>
-    </div>
-</div> -->
 <div class=" officials-card">
     <div class="">
-        <h3 class="headings">{name}</h3>
-        <p class="title">{title}</p>
+        <a href={link}>
+            <h3 class="headings">{name}</h3>
+            <p class="title">{title}</p>
+        </a>
     </div>
 </div>
 
