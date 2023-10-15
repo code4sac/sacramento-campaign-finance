@@ -15,113 +15,57 @@
     // const lang = writable("en");
 </script>
 
-<nav>
-    <h1 class="nav-logo">Sacramento Campaign Cash</h1>
-    <ul>
-        <li>
-            <a href="/">Home</a>
-        </li>
-        <li>
-            <a href="/election/2024" target="_self">Upcoming election</a>
-        </li>
-        <li>
-            <a href="/body/sac-city" target="_self">City Council</a>
-        </li>
-        <li>
-            <a href="/body/sac-county" target="_self">Board of Supervisors</a>
-        </li>
-    </ul>
-    <!-- <div class="dropdown-container">
-        <div class="dropdown">
-            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                ><IconBuildingSkyscraper /> Sacramento, CA</a
-            >
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Sacramento, CA</a>
-            </div>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Sacramento Campaign Cash</a>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/election/2024" target="_self">Upcoming election</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/body/sac-city" target="_self">City Council</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/body/sac-county" target="_self">Board of Supervisors</a>
+                </li>
+            </ul>
         </div>
-        <div class="dropdown">
-            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                ><IconWorld /> English</a
-            >
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">English</a>
+    </div>
+        <!-- <div class="dropdown-container">
+            <div class="dropdown">
+                <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                    ><IconBuildingSkyscraper /> Sacramento, CA</a
+                >
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Sacramento, CA</a>
+                </div>
             </div>
-        </div>
-    </div> -->
+            <div class="dropdown">
+                <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                    ><IconWorld /> English</a
+                >
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">English</a>
+                </div>
+            </div>
+        </div> -->
 </nav>
 
 <style lang="scss">
-    nav {
-        // display: grid;
-        // grid-template-columns: 150px 1fr 40%;
-        display: flex;
-        align-items: center;
-        background: #fff;
-        padding: 10px 40px 10px 40px;
-        color: #1e1e1e;
-        font-family: Inter;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        width: 100%;
-    }
-    .nav-logo {
-        color: #1e1e1e;
-        font-family: Inter;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-    }
-    .dropdown-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    h1 {
-        grid-column: 1 / 2;
-        font-size: 1rem;
-        line-height: 1.2rem;
-        max-width: 150px;
-        width: 150px;
-    }
-    ul {
-        display: flex;
-        // grid-column: 2/3;
-        justify-content: left;
-        align-items: center;
-        list-style-type: none;
-        padding: 10;
-        width: 100%;
-        gap: 30px;
-    }
-    // ideas for getting underline to appear
-    // li {
-    //     // padding-bottom: px;
+    // .dropdown-container {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
     // }
-    // li:hover {
-    //     border-bottom: #1e1e1e;
-    // }
-    // a {
-    //     padding-bottom: 10px;
-    //     text-decoration: none;
-    // }
-    // a:hover {
-    //     border-color: black;
-    //     border-bottom: 5px;
-    // }
-    a:hover {
-        color: #0054a6;
-    }
 
-    .select-container {
-        display: flex;
-        justify-content: flex-end;
-        grid-column: 3;
-    }
-    .dropdown-container {
-        gap: 30px;
-    }
+
+    // .select-container {
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     grid-column: 3;
+    // }
+    // .dropdown-container {
+    //     gap: 30px;
+    // }
 </style>
