@@ -1,4 +1,4 @@
-import { kebabCase } from 'lodash'
+import _ from 'lodash'
 import { timeFormat } from 'd3-time-format'
 
 export function formatDollar(number) {
@@ -13,5 +13,5 @@ export function formatGenerated(generated) {
 }
 
 export function formatLegislatorAnchorId(str) {
-    return kebabCase(str.toLowerCase())
+    return _.kebabCase(str.toLowerCase())
 }
