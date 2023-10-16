@@ -1,6 +1,7 @@
 <script>
   import { orderBy } from 'lodash'
   import { sum } from "d3-array";
+  import { formatLegislatorAnchorId } from '$lib/format'
   import Contributors from "./Contributors.svelte";
   export let name = "";
   export let title = "";
@@ -20,21 +21,23 @@
 </script>
 
 <div class="hr-text">
-  {title}
+  <a id={formatLegislatorAnchorId(`${title}`)}>
+    {title}
+  </a>
 </div>
 
 <div class="legislator card col-sm-8">
   <div class="card-body">
     <div class="datagrid">
-      <div class="datagrid-item">
+      <div class="datagrid-item name-grid-item">
         <div class="datagrid-title">Name</div>
         <div class="datagrid-content">{name}</div>
       </div>
-      <div class="datagrid-item">
+      <div class="datagrid-item total-received-grid-item">
         <div class="datagrid-title">Total received</div>
         <div class="datagrid-content">${total.toLocaleString("en-US")}</div>
       </div>
-      <div class="datagrid-item">
+      <div class="datagrid-item committees-grid-item">
         <div class="datagrid-title">Committees</div>
         <div class="datagrid-content">
           <ul class="committees">
@@ -130,8 +133,11 @@
   }
 
   .committees {
-    list-style-type: none;
-    padding-left: 0;
+    padding-left: .8rem;
+  }
+
+  .committees-grid-item {
+    grid-column: 1;
   }
 
   .contributors-grid-item {
