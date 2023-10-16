@@ -39,35 +39,58 @@
 </script>
 
 <div class="hero-tagline">
-    <h1 class="tagline">Campaign Finance Data<br /> in Sacramento</h1>
-</div>
-<div class="hero">
-    <!-- total amount raised -->
-    <div class="total-raised-container">
-        <h2 class="total-raised-amount">
-            {formatDollar(total)}
-        </h2>
-        <p class="total-raised-label">
-            Total amount reported by local officials
-        </p>
+    <div class="container">
+        <h1 class="tagline">Campaign Finance Data for Sacramento City and County</h1>
+        <p>Regularly updated campaign finance data for elected officials in the City and County of Sacramento, California. We don't manipulate the data except to normalize some name spellings so that our aggregations can be more accurate. <a href="#about-the-data">Learn more about the data.</a></p>
+        <p>The last data update happened on {formatGenerated(generated)}.</p>
     </div>
-    <!-- council/baord block container -->
-    <div class="blocks-container">
-        {#each blocks as block}
-            <div class="block">
-                <div class="block-title">{block.label}</div>
-                <div class="amount">{formatDollar(block.value)}</div>
-                <div class="amount-label">Raised</div>
-                <div class="block-link">
-                    <a href={block.href} class="btn btn-primary"
-                        >Learn More <IconArrowNarrowRight /></a
-                    >
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 mt-3 text-center">
+        {#each totals as block}
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h3 class="my-0">
+                            {block.name}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{formatDollar(block.total)}</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        {#each block.offices as office}
+                            <li>{office}</li>
+                        {/each}
+                    </ul>
+                    <a href={block.href} class="btn btn-primary">
+                        Learn More <IconArrowNarrowRight />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {/each}
+    </div>
+</div>
+
+
+<!-- <div class="hero">
+    <div class="container">
+        
+            <div class="card">
+                <div class="card-body">
+                    <div class="block-title"></div>
+                    <div class="amount">{formatDollar(block.value)}</div>
+                    <div class="amount-label">Raised</div>
+                    <div class="block-link">
+                        
+                    </div>
                 </div>
             </div>
         {/each}
         <p>Last updated on {formatGenerated(generated)}</p>
     </div>
-</div>
+</div> -->
 <!-- browse by official boxes -->
 <div class="browse-container">
     <div class="browse-tagline">
@@ -108,7 +131,7 @@
     </div>
 
     <div class="about-container">
-        <h2 id="about">About the data</h2>
+        <h2 id="about-the-data">About the data</h2>
       
         <h3>Where does the data come from?</h3>
         <p>The data is scraped from <a href="https://public.netfile.com/pub2/?aid=SAC">the city's financial reports site</a> and <a href="https://public.netfile.com/pub2/?aid=SCO">the county's site</a>. The last time scrape was on {formatGenerated(generated)} California time. The scraper code is <a href="https://github.com/code4sac/sacramento-campaign-finance/blob/main/scripts/index.js">here</a>.</p>
@@ -144,43 +167,18 @@
     //     height: 100%;
     //     margin: 0;
     // }
-    .hero {
-        --column-gutter: 1rem;
-        display: grid;
-        grid-template-columns:
-            var(--column-gutter) 2fr var(--column-gutter) 1fr var(
-                --column-gutter
-            )
-            1fr var(--column-gutter);
-        grid-template-rows: var(--column-gutter) 1fr var(--column-gutter) 1fr var(
-                --column-gutter
-            );
-        min-height: 50vh;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-    .hero-tagline {
-        padding-left: 40px;
-        padding-top: 80px;
-        padding-bottom: 35px;
-        background: #09447c;
-        color: #fff;
-        width: 100%;
-        position: relative;
-    }
-
-    .tagline {
-        color: #fff;
-        font-family: Inter;
-        font-size: 36px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        grid-column: 2/2;
-        grid-row: 2/2;
-        line-height: 1.1em;
-        margin: 0;
-    }
+    // .tagline {
+    //     color: #fff;
+    //     font-family: Inter;
+    //     font-size: 36px;
+    //     font-style: normal;
+    //     font-weight: 600;
+    //     line-height: normal;
+    //     grid-column: 2/2;
+    //     grid-row: 2/2;
+    //     line-height: 1.1em;
+    //     margin: 0;
+    // }
 
     .total-raised-container {
         // border: 1px solid white;

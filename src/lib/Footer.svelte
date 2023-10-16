@@ -4,9 +4,9 @@
 
 <style>
   footer {
-		bottom: 0;
 		font-size: 14px;
 		line-height: 18px;
+		margin-top: 1rem;
 		margin-bottom: 1rem;
 		text-align: center;
 		width: 100%;
