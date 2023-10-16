@@ -6,7 +6,7 @@
 <div>
   <div class="hr-text">
     {data.title}
-    {#if data.district}{data.district}{/if}
+    {#if data.district}, District {data.district}{/if}
   </div>
 
   <div class="row">
