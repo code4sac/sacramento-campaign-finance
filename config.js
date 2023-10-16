@@ -220,6 +220,7 @@ const config = {
               committee: {
                 id: "1434125",
                 name: "STEVE HANSEN FOR MAYOR 2024"
+              }
             },
             {
               name: 'Richard Pan',
