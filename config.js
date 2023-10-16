@@ -216,6 +216,12 @@ const config = {
               }
             },
             {
+              name: 'Steve Hansen',
+              committee: {
+                id: "1434125",
+                name: "STEVE HANSEN FOR MAYOR 2024"
+            },
+            {
               name: 'Richard Pan',
               committee: {
                 id: "1461352",
