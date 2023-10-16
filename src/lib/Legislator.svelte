@@ -1,6 +1,7 @@
 <script>
   import { orderBy } from 'lodash'
   import { sum } from "d3-array";
+  import { formatLegislatorAnchorId } from '$lib/format'
   import Contributors from "./Contributors.svelte";
   export let name = "";
   export let title = "";
@@ -20,7 +21,9 @@
 </script>
 
 <div class="hr-text">
-  {title}
+  <a id={formatLegislatorAnchorId(`${title}`)}>
+    {title}
+  </a>
 </div>
 
 <div class="legislator card col-sm-8">
