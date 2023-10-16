@@ -6,7 +6,7 @@
 
 <div class=" officials-card">
     <div class="">
-        <a href={link}>
+        <a href={link} style="width: fit-content;">
             <h3 class="headings">{name}</h3>
             <p class="title">{title}</p>
         </a>
