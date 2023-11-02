@@ -6,13 +6,17 @@ Sacramento Campaign Finance follows the following coding style guidelines.
 -   4 space width tabs.
 -   Spaces around Javascript objects and imports.
 
-The project should be flexible and developer friendly. Therefor, lint and format
-files are not included by default in this project. The reduces files and shows a
-less squiggly warning lines in your IDE.
+When **ESLint** and **Prettier** configuration files are added to the project base directory,
+they automatically take effect.
+They can then be invoked with the `npm run lint` and `npm run format` commands.
 
-## ESLint
+> **Note:** Code style is optional. If we included these tools by default, it could generate too many squiggly warning lines.
 
-### .eslintrc.cjs
+## Linting
+
+Use [ESLint](https://eslint.org/) to check for errors and warnings.
+
+#### .eslintrc.cjs
 
 ```javascript
 module.exports = {
@@ -46,9 +50,14 @@ module.exports = {
 };
 ```
 
-## Prettier
+## Formatting
 
-### .prettierignore
+Use [Prettier](https://prettier.io/) to automatically reformat code.
+Start by adding a `.prettierignore` file and then add options to a `.prettierrc` file.
+
+> **Note:** Prettier does not recognize .svelte files. You can try to format it with other tools provided by your editor.
+
+#### .prettierignore
 
 ```gitignore
 data/
@@ -74,10 +83,9 @@ coverage
 **/.hg
 ```
 
-### .prettierrc
+#### .prettierrc
 
-```javascript
-// prettier.config.js, .prettierrc.js, prettier.config.cjs, or .prettierrc.cjs
+```json
 {
     "semi": true,
     "singleQuote": true,
@@ -88,9 +96,6 @@ coverage
     "tabWidth": 4,
     "plugins": ["prettier-plugin-organize-imports"]
 }
-
-
-module.exports = config;
 ```
 
 ### Run Prettier from the command line
