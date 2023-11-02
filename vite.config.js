@@ -1,6 +1,10 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 
-/** @type {import('vite').UserConfig} */
+/**
+ * Vite configuration.
+ * - server.fs.allow['..'] Search up directory for workspace root by default.
+ * @type {import('vite').UserConfig}
+ * */
 const config = {
     server: {
         fs: {

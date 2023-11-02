@@ -1,7 +1,10 @@
 import adapter from '@sveltejs/adapter-netlify';
 import preprocess from 'svelte-preprocess';
 
-/** @type {import('@sveltejs/kit').Config} */
+/**
+ * Svelte configuration. Supports Netlify Edge Function and SCSS.
+ * @type {import('@sveltejs/kit').Config}
+ * */
 const config = {
     kit: {
         // default options are shown
@@ -21,12 +24,8 @@ const config = {
     preprocess: preprocess(),
 
     prerender: {
-        entries: [
-            '/body/sac-city',
-            '/election/2022-11-08'
-        ]
+        entries: ['/body/sac-city', '/election/2022-11-08']
     }
-
 };
 
 export default config;

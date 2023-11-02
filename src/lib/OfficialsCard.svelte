@@ -1,7 +1,7 @@
 <script>
-    export let link = "";
-    export let name = "";
-    export let title = "";
+    export let link = '';
+    export let name = '';
+    export let title = '';
 </script>
 
 <div class=" officials-card">

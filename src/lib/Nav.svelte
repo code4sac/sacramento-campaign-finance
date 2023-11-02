@@ -21,18 +21,24 @@
         <div class="navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/election/2024" target="_self">Upcoming election</a>
+                    <a class="nav-link" href="/election/2024" target="_self"
+                        >Upcoming election</a
+                    >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/body/sac-city" target="_self">City Council</a>
+                    <a class="nav-link" href="/body/sac-city" target="_self"
+                        >City Council</a
+                    >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/body/sac-county" target="_self">Board of Supervisors</a>
+                    <a class="nav-link" href="/body/sac-county" target="_self"
+                        >Board of Supervisors</a
+                    >
                 </li>
             </ul>
         </div>
     </div>
-        <!-- <div class="dropdown-container">
+    <!-- <div class="dropdown-container">
             <div class="dropdown">
                 <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
                     ><IconBuildingSkyscraper /> Sacramento, CA</a
@@ -58,7 +64,6 @@
     //     justify-content: center;
     //     align-items: center;
     // }
-
 
     // .select-container {
     //     display: flex;
