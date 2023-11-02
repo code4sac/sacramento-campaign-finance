@@ -65,6 +65,8 @@ prisma/
 tmp/
 node_modules/
 src/lib/data.json
+package.json
+package-lock.json
 
 # Ignore artifacts:
 build
