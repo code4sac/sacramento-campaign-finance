@@ -19,7 +19,6 @@
         };
     });
 
-
     const officialsData = writable(officials);
     let officialDrop = "";
     function dropdownData(num) {
