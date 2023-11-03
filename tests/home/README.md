@@ -1,0 +1,3 @@
+# Home page tests
+
+-   load()

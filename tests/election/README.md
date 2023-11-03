@@ -1,0 +1,3 @@
+# Election page tests
+
+-   load()
