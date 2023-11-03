@@ -1,6 +1,8 @@
 <script>
     import { sum } from 'd3-array';
     import { orderBy } from 'lodash';
+    import { formatLegislatorAnchorId } from '$lib/format';
+    import Contributors from './Contributors.svelte';
     export let name = '';
     export let title = '';
     export let contributors = [];
