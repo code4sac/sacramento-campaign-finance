@@ -1,9 +1,9 @@
 <script>
-    import { sum } from "d3-array";
-    import { writable } from "svelte/store";
-    import { formatDollar, formatGenerated, formatLegislatorAnchorId } from "$lib/format.js";
-    import OfficialsCard from "$lib/OfficialsCard.svelte";
-    import { IconArrowNarrowRight } from "@tabler/icons-svelte";
+    import { sum } from 'd3-array';
+    import { writable } from 'svelte/store';
+    import { formatDollar, formatGenerated, formatLegislatorAnchorId } from '$lib/format.js';
+    import OfficialsCard from '$lib/OfficialsCard.svelte';
+    import { IconArrowNarrowRight } from '@tabler/icons-svelte';
 
     export let data = {};
 
@@ -20,16 +20,16 @@
     });
 
     const officialsData = writable(officials);
-    let officialDrop = "";
+    let officialDrop = '';
     function dropdownData(num) {
         if (num === 2) {
-            officialDrop = "City Council";
+            officialDrop = 'City Council';
             $officialsData = officials.filter(d => d.link.startsWith('/body/sac-city'));
         } else if (num === 1) {
-            officialDrop = "Board of Supervisors";
+            officialDrop = 'Board of Supervisors';
             $officialsData = officials.filter(d => d.link.startsWith('/body/sac-county'));
         } else {
-            officialDrop = "All Officials";
+            officialDrop = 'All Officials';
             $officialsData = officials;
         }
     }

@@ -1,7 +1,7 @@
 <script>
-    import { sum } from "d3-array";
-    import { formatDollar, formatGenerated, formatLegislatorAnchorId } from "$lib/format";
-    import Legislator from "$lib/Legislator.svelte";
+    import { sum } from 'd3-array';
+    import { formatDollar, formatGenerated, formatLegislatorAnchorId } from '$lib/format';
+    import Legislator from '$lib/Legislator.svelte';
 
     export let data = {};
 
@@ -10,12 +10,12 @@
     $: contributions = legislators.map((d) => d.contributors).flat();
     $: total = sum(contributions, (d) => d.amount);
 
-    let name = "";
+    let name = '';
 
-    if (bodyId === "sac-city") {
-        name = "City Council";
-    } else if (bodyId === "sac-county") {
-        name = "Board of Supervisors";
+    if (bodyId === 'sac-city') {
+        name = 'City Council';
+    } else if (bodyId === 'sac-county') {
+        name = 'Board of Supervisors';
     }
 </script>
 

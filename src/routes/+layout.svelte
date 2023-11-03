@@ -1,9 +1,9 @@
 <script>
-    import "../app.css";
+    import '../app.css';
 
-    import Footer from "$lib/Footer.svelte";
-    import Nav from "$lib/Nav.svelte";
-    // import "@tabler/core";
+    import Footer from '$lib/Footer.svelte';
+    import Nav from '$lib/Nav.svelte';
+    // import '@tabler/core';
 </script>
 
 <Nav />

@@ -1,6 +1,6 @@
 <script>
     import { formatGenerated } from '$lib/format.js';
-    import Race from "$lib/Race.svelte";
+    import Race from '$lib/Race.svelte';
     export let data = {};
     $: generated = formatGenerated(data.generated);
     $: races = data.races;
