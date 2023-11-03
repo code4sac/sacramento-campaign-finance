@@ -4,7 +4,55 @@ Sacramento Campaign Finance follows the following coding style guidelines.
 
 -   Semi-colons at the end of Javascript statements.
 -   4 space width tabs.
--   Spaces around Javascript objects and imports.
+- Spaces around Javascript objects and imports.
+- Single quotes over double quotes.
+-
+
+### Structuring Svelte files
+
+(TBD) I think Svelte files should be flexible, and we should be lax on styling rules.
+Prettier does not support .svelte files out of the box.
+
+### Structuring CSS .css file imports
+
+CSS should include a newline between each rule.
+
+Multiple selectors in the same rule should be placed on their own line (Prettier default; TBD).
+
+```css
+html,
+body,
+div.content {
+    width: 100%;
+}
+
+my-class {
+    display: flex;
+}
+```
+
+### Structuring Javascript .js file styling and import format
+
+Javascript .js files, not javascript in .svelte, should follow the following format with importing libraries. They
+should include a new line between each of the three import sections, defined below.
+
+```javascript
+// First, add core and third-party libraries
+import {error} from '@sveltejs/kit';
+import {rollup, sum} from 'd3-array';
+
+// Second, add local files
+import config from '$lib/../../config.js';
+import createContributorId from '$lib/contributorId.js';
+import {data, generated} from '$lib/data.json';
+
+// Third, add global varialbes
+const config = { thing: "thing" }
+
+// Add functions. Always including parenthesis around function parameters, even if it's only one.
+const get = () => { get('thing', (response) => { console.log(response) })}
+```
+
 
 When **ESLint** and **Prettier** configuration files are added to the project base directory,
 they automatically take effect.
