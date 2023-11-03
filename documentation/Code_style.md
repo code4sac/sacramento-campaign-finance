@@ -4,9 +4,11 @@ Sacramento Campaign Finance follows the following coding style guidelines.
 
 -   Semi-colons at the end of Javascript statements.
 -   4 space width tabs.
-- Spaces around Javascript objects and imports.
-- Single quotes over double quotes.
--
+-   Spaces around Javascript objects and imports.
+-   Single quotes over double quotes.
+-   Javascript imports divided into sections, with a new line speperating each.
+-   Multiple CSS selectors on new lines.
+-   Newline between CSS rules.
 
 ### Structuring Svelte files
 
@@ -93,7 +95,7 @@ module.exports = {
         'object-curly-spacing': ['error', 'always'],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
-        semi: ['error', 'never']
+        semi: ['error', 'always']
     }
 };
 ```
