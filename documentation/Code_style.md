@@ -59,7 +59,7 @@ When **ESLint** and **Prettier** configuration files are added to the project ba
 they automatically take effect.
 They can then be invoked with the `npm run lint` and `npm run format` commands.
 
-> **Note:** Code lint and foratting is optional. If we included these tools by default, it could generate too many squiggly warning lines.
+> **Note:** Code linting and foratting are optional. If we included these tools by default, it could generate too many squiggly warning lines.
 
 ## Linting
 
