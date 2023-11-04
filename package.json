@@ -9,7 +9,8 @@
         "preview": "vite preview --port 3000",
         "lint": "eslint .",
         "format": "prettier --write .",
-        "test": "vitest"
+        "test": "vitest",
+        "data": "node scripts/index.js"
     },
     "keywords": [],
     "author": "@jeremiak",
