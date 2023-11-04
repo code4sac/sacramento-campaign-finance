@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const downloadPath = path.join(__dirname, '../tmp');
 
-const timeout = 120000;
+const timeout = 0; // 0 is infinite. It was 120000 previously.
 
 /**
  * Download data from Netfile.
@@ -42,6 +42,6 @@ export default async function downloadNetfile({ agencyId, year }) {
     // downloading, let's just wait 5 seconds and see if
     // that works for now. shrug
     // const fileName = `${aid}-${year}.zip`
-    await new Promise((resolve) => setTimeout(resolve, 7000));
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     await browser.close();
 }
