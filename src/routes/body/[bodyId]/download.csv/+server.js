@@ -10,7 +10,7 @@ import { data } from '$lib/data.json';
  * Download CSV file for legislative bodies.
  * HTTP Method: GET
  * @param {Body.body} params Body ID string.
- * @returns {Response} Response with a the CSV as a string.
+ * @returns {Response} Response https://developer.mozilla.org/en-US/docs/Web/API/Response.
  */
 export function GET({ params }) {
     const { bodyId } = params;
