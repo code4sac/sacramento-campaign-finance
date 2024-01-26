@@ -48,7 +48,7 @@ export function load() {
         href: `/election/2024`,
         name: 'Upcoming election',
         total: electionTotal,
-        offices: ['Mayor', 'City councilmembers (D2, D4, D6, D8)']
+        offices: ['Mayor', 'City councilmembers (D2, D4, D6, D8)', 'Board of Supervisors (D3, D4)']
     };
 
     const officials = config.bodies
