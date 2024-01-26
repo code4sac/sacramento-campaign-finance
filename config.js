@@ -209,19 +209,27 @@ const config = {
               }
             },
             {
-              name: 'Kevin McCarty',
-              committee: {
-                id: "1460934",
-                name: "MC CARTY FOR MAYOR 2024"
-              }
-            },
-            {
               name: 'Steve Hansen',
               committee: {
                 id: "1434125",
                 name: "STEVE HANSEN FOR MAYOR 2024"
               }
             },
+            {
+              name: 'Maggie Krell',
+              committee: {
+                id: "1459940",
+                name: "MAGGIE KRELL FOR MAYOR 2024"
+              }
+            },
+            {
+              name: 'Kevin McCarty',
+              committee: {
+                id: "1460934",
+                name: "MC CARTY FOR MAYOR 2024"
+              }
+            },
+
             {
               name: 'Richard Pan',
               committee: {
@@ -236,13 +244,6 @@ const config = {
           district: 2,
           title: 'City Council',
           candidates: [
-            {
-              name: 'Sean Loloee',
-              committee: {
-                id: '1441736',
-                name: 'SEAN LOLOEE FOR CITY COUNCIL 2024'
-              }
-            },
             {
               name: 'Kim Davie',
               committee: {
@@ -265,10 +266,31 @@ const config = {
               }
             },
             {
+              name: 'Penelope Larry',
+              committee: {
+                id: '1463560',
+                name: 'PENELOPE LARRY FOR CITY COUNCIL 2024'
+              }
+            },
+            {
               name: `Tamika L'Ecluse`,
               committee: {
                 id: '1459299',
                 name: `TAMIKA  L'ECLUSE FOR CITY COUNCIL 2024`
+              }
+            },
+            {
+              name: `Veronica Smith`,
+              committee: {
+                id: '1464739',
+                name: `VERONICA SMITH FOR CITY COUNCIL 2024`
+              }
+            },
+            {
+              name: `Stephen Walton`,
+              committee: {
+                id: '1465059',
+                name: `STEPHEN WALTON FOR CITY COUNCIL 2024`
               }
             }
           ]
@@ -307,10 +329,10 @@ const config = {
               }
             },
             {
-              name: 'Amreet Sandhu',
+              name: 'KC Schuft',
               committee: {
-                id: '1460982',
-                name: 'AMREET SANDHU FOR SACRAMENTO CITY COUNCIL 2024'
+                id: '1464877',
+                name: 'KC SCHUFT FOR CITY COUNCIL 2024'
               }
             }
           ]
@@ -325,6 +347,48 @@ const config = {
               committee: {
                 id: '1435334',
                 name: 'MAI VANG FOR CITY COUNCIL 2024'
+              }
+            }
+          ]
+        },
+        {
+          body: 'County Board of Supervisors',
+          district: 3,
+          title: 'Board of Supervisors',
+          candidates: [
+            {
+              name: 'Rich Desmond',
+              committee: {
+                id: '1419486',
+                name: 'RICH DESMOND FOR SUPERVISOR 2024'
+              }
+            }
+          ]
+        },
+        {
+          body: 'County Board of Supervisors',
+          district: 4,
+          title: 'Board of Supervisors',
+          candidates: [
+            {
+              name: 'Bret Daniels',
+              committee: {
+                id: '1462244',
+                name: 'BRET DANIELS FOR SUPERVISOR 2024'
+              }
+            },
+            {
+              name: 'Braden Murphy',
+              committee: {
+                id: '1461835',
+                name: 'BRADEN MURPHY FOR SUPERVISOR 2024'
+              }
+            },
+            {
+              name: 'Rosario Rodriguez',
+              committee: {
+                id: '1462417',
+                name: 'ROSARIO RODRIGUEZ FOR SUPERVISOR 2024'
               }
             }
           ]
