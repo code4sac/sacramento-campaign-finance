@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import Queue from 'p-queue';
 
-const years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+const years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
 const schedules = ['schedule-a', 'schedule-c'];
 
 export default async function load() {
