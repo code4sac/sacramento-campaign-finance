@@ -15,7 +15,7 @@ console.log(`Starting at ${startTime}`);
 config.bodies.forEach((site) => {
     const { name: agencyName, vendorId: agencyId } = site;
     queue.add(async () => {
-        const year = '2023';
+        const year = '2024';
         const opts = { agencyName, agencyId, year };
 
         const f = `${agencyName} (${agencyId} - ${year})`;
