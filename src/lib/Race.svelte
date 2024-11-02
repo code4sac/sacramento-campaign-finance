@@ -11,7 +11,7 @@
 
     <div class="row">
         {#each data.candidates as candidate}
-            <div class="candidate col-sm-6 col-lg-4">
+            <div class="candidate col-sm-6 col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <Candidate {...candidate} />

@@ -209,34 +209,12 @@ const config = {
               }
             },
             {
-              name: 'Steve Hansen',
-              committee: {
-                id: "1434125",
-                name: "STEVE HANSEN FOR MAYOR 2024"
-              }
-            },
-            {
-              name: 'Maggie Krell',
-              committee: {
-                id: "1459940",
-                name: "MAGGIE KRELL FOR MAYOR 2024"
-              }
-            },
-            {
               name: 'Kevin McCarty',
               committee: {
                 id: "1460934",
                 name: "MC CARTY FOR MAYOR 2024"
               }
             },
-
-            {
-              name: 'Richard Pan',
-              committee: {
-                id: "1461352",
-                name: "DR. RICHARD PAN FOR MAYOR 2024"
-              }
-            }
           ]
         },
         {
@@ -245,45 +223,10 @@ const config = {
           title: 'City Council',
           candidates: [
             {
-              name: 'Kim Davie',
-              committee: {
-                id: '1459590',
-                name: 'DAVIE FOR CITY COUNCIL 2024'
-              }
-            },
-            {
               name: 'Roger Dickinson',
               committee: {
                 id: '1461133',
                 name: 'ROGER DICKINSON FOR CITY COUNCIL 2024'
-              }
-            },
-            {
-              name: 'Ramona Landeros',
-              committee: {
-                id: '1460682',
-                name: 'VOTE RAMONA LANDEROS CITY COUNCIL 2024'
-              }
-            },
-            {
-              name: 'Penelope Larry',
-              committee: {
-                id: '1463560',
-                name: 'PENELOPE LARRY FOR CITY COUNCIL 2024'
-              }
-            },
-            {
-              name: `Tamika L'Ecluse`,
-              committee: {
-                id: '1459299',
-                name: `TAMIKA  L'ECLUSE FOR CITY COUNCIL 2024`
-              }
-            },
-            {
-              name: `Veronica Smith`,
-              committee: {
-                id: '1464739',
-                name: `VERONICA SMITH FOR CITY COUNCIL 2024`
               }
             },
             {
@@ -295,106 +238,8 @@ const config = {
             }
           ]
         },
-        {
-          body: 'City Council',
-          district: 4,
-          title: 'City Council',
-          candidates: [
-            {
-              name: 'Katie Valenzuela',
-              committee: {
-                id: '1426389',
-                name: 'KATIE VALENZUELA FOR SACRAMENTO CITY COUNCIL 2024'
-              }
-            },
-            {
-              name: 'Phil Pluckebaum',
-              committee: {
-                id: '1457535',
-                name: 'PLUCKEBAUM FOR CITY COUNCIL 2024 '
-              }
-            }
-          ]
-        },
-        {
-          body: 'City Council',
-          district: 6,
-          title: 'City Council',
-          candidates: [
-            {
-              name: 'Eric Guerra',
-              committee: {
-                id: '1431012',
-                name: 'ERIC GUERRA FOR CITY COUNCIL 2024'
-              }
-            },
-            {
-              name: 'KC Schuft',
-              committee: {
-                id: '1464877',
-                name: 'KC SCHUFT FOR CITY COUNCIL 2024'
-              }
-            }
-          ]
-        },
-        {
-          body: 'City Council',
-          district: 8,
-          title: 'City Council',
-          candidates: [
-            {
-              name: 'Mai Vang',
-              committee: {
-                id: '1435334',
-                name: 'MAI VANG FOR CITY COUNCIL 2024'
-              }
-            }
-          ]
-        },
-        {
-          body: 'County Board of Supervisors',
-          district: 3,
-          title: 'Board of Supervisors',
-          candidates: [
-            {
-              name: 'Rich Desmond',
-              committee: {
-                id: '1419486',
-                name: 'RICH DESMOND FOR SUPERVISOR 2024'
-              }
-            }
-          ]
-        },
-        {
-          body: 'County Board of Supervisors',
-          district: 4,
-          title: 'Board of Supervisors',
-          candidates: [
-            {
-              name: 'Bret Daniels',
-              committee: {
-                id: '1462244',
-                name: 'BRET DANIELS FOR SUPERVISOR 2024'
-              }
-            },
-            {
-              name: 'Braden Murphy',
-              committee: {
-                id: '1461835',
-                name: 'BRADEN MURPHY FOR SUPERVISOR 2024'
-              }
-            },
-            {
-              name: 'Rosario Rodriguez',
-              committee: {
-                id: '1462417',
-                name: 'ROSARIO RODRIGUEZ FOR SUPERVISOR 2024'
-              }
-            }
-          ]
-        }
       ]
-    }
+    } 
   ]
 };
 
