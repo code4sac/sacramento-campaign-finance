@@ -14,7 +14,7 @@ jobs:
       with:
         node-version: '20'
     - name: Install Node dependencies
-      run: npm install
+      run: npm install && npm install puppeteer@^21.4.1
     - name: Run scripts
       run: |-
         node scripts/index.js
