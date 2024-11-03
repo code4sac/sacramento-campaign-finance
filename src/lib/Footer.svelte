@@ -5,9 +5,8 @@
 <style>
     footer {
         font-size: 14px;
-        line-height: 18px;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
         text-align: center;
         width: 100%;
     }
