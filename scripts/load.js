@@ -43,6 +43,8 @@ export default async function load() {
 
     await queue.onIdle();
 
+    // tested out this apporach in this
+    // notebook: https://observablehq.com/d/4d3ee045f9885b59
     const withThroughDate = data.filter(d => d.reportThruDate)
     const latestThroughDateByFiler = rollup(withThroughDate, values => {
         const throughDates = _.uniq(values.map((d) => d.reportThruDate)).sort();
