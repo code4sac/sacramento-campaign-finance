@@ -96,94 +96,35 @@
     </div>
 </div> -->
 <!-- browse by official boxes -->
-<div class="browse-container">
-    <div class="browse-tagline">
-        <h1>Browse by Official</h1>
 
-        <div class="dropdown browse-dropdown">
-            <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-                {officialDrop}
-            </a>
-            <div class="dropdown-menu">
-                <!-- can have both options OR state manage which option to
-                show depending on what's currently selected -->
-                <a
-                    class="dropdown-item"
-                    href="#"
-                    on:click={() => dropdownData(0)}>All Officials</a
-                >
-                <a
-                    class="dropdown-item"
-                    href="#"
-                    on:click={() => dropdownData(1)}>Board of Supervisors</a
-                >
-                <a
-                    class="dropdown-item"
-                    href="#"
-                    on:click={() => dropdownData(2)}>City Council</a
-                >
-            </div>
-        </div>
+<div class="about-container container">
+    <h2 id="about-the-data">About the data</h2>
+
+    <h3>Where does the data come from?</h3>
+    <p>The data is scraped from <a href="https://public.netfile.com/pub2/?aid=SAC">the city's financial reports site</a> and <a href="https://public.netfile.com/pub2/?aid=SCO">the county's site</a>. The last time scrape was on {formatGenerated(generated)} California time. The scraper code is <a href="https://github.com/code4sac/sacramento-campaign-finance/blob/main/scripts/index.js">here</a>.</p>
+
+    <h3>What years does the data represent?</h3>
+    <p>We have scraped all data since 2014, though we only scrape data for the current year regularly.</p>
+
+    <h3>Are all contributions included or only those above a certain amount?</h3>
+    <p>All contributions reported to the city and county governments should show up here. Large contributions reported on Form 497 reports are only used if they're more recent than the most recent Form 460 report filed by that committee.</p>
 
 
-    </div>
-    <!-- blocks begin -->
-    <!-- <div class="officials-container">
-        {#each $officialsData as card}
-            <OfficialsCard {...card} />
-        {/each}
-    </div> -->
+    <h3>Is the data altered?</h3>
+    <p>We only do two things with the data:</p>
+    <ol>
+        <li>We normalize some of the contributor names to account for slight spelling differences.</li>
+        <li>We aggregate the contributors by contributor to show the full amount and not the per transaction amount.</li>
+    </ol>
 
-    <div class="about-container">
-        <h2 id="about-the-data">About the data</h2>
-      
-        <h3>Where does the data come from?</h3>
-        <p>The data is scraped from <a href="https://public.netfile.com/pub2/?aid=SAC">the city's financial reports site</a> and <a href="https://public.netfile.com/pub2/?aid=SCO">the county's site</a>. The last time scrape was on {formatGenerated(generated)} California time. The scraper code is <a href="https://github.com/code4sac/sacramento-campaign-finance/blob/main/scripts/index.js">here</a>.</p>
-        
-        <h3>What years does the data represent?</h3>
-        <p>We have scraped all data since 2014, though we only scrape data for the current year regularly.</p>
-      
-        <h3>Are all contributions included or only those above a certain amount?</h3>
-        <p>All contributions reported to the city and county governments should show up here.</p>
+    <h3>Are there contribution limits?</h3>
+    <p>The Fair Political Practices Commission <a href="https://fppc.ca.gov/learn/Contribution-Limits-City-and-County-Candidates.html">sets the limits for local candidates</a>.</p>
 
-        
-        <h3>Is the data altered?</h3>
-        <p>We only do two things with the data:</p>
-        <ol>
-            <li>We normalize some of the contributor names to account for slight spelling differences.</li>
-            <li>We aggregate the contributors by contributor to show the full amount and not the per transaction amount.</li>
-        </ol>
-        
-        <h3>Are there contribution limits?</h3>
-        <p>The Fair Political Practices Commission <a href="https://fppc.ca.gov/learn/Contribution-Limits-City-and-County-Candidates.html">sets the limits for local candidates</a>.</p>
-
-        <h3>What if there's a mistake?</h3>
-        <p>Please let us know by <a href="https://github.com/code4sac/sacramento-campaign-finance/issues/new">opening an issue on Github</a>.</p>
-      </div>
+    <h3>What if there's a mistake?</h3>
+    <p>Please let us know by <a href="https://github.com/code4sac/sacramento-campaign-finance/issues/new">opening an issue on Github</a>.</p>
 </div>
 
 <style lang="scss">
-    // trying to get body to fill viewport, did not work
-    // \ html,
-    // body,
-    // div.content {
-    //     width: 100%;
-    //     height: 100%;
-    //     margin: 0;
-    // }
-    // .tagline {
-    //     color: #fff;
-    //     font-family: Inter;
-    //     font-size: 36px;
-    //     font-style: normal;
-    //     font-weight: 600;
-    //     line-height: normal;
-    //     grid-column: 2/2;
-    //     grid-row: 2/2;
-    //     line-height: 1.1em;
-    //     margin: 0;
-    // }
-
     .hero-tagline {
         margin-bottom: 2rem;
     }
