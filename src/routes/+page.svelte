@@ -56,13 +56,18 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                    <h1 class="card-title pricing-card-title">{formatDollar(block.total)}</h1>
+                    <h1 class="card-title pricing-card-title">
+                        {formatDollar(block.total)}
+                    </h1>
                     <ul class="list-unstyled mt-3 mb-4">
                         {#each block.offices as office}
                             <li>{office}</li>
                         {/each}
+                        {#if block.offices.length === 1}
+                            <br />
+                        {/if}
                     </ul>
-                    <a href={block.href} class="btn btn-primary">
+                    <a href={block.href}>
                         Learn More <IconArrowNarrowRight />
                         </a>
                     </div>
@@ -178,6 +183,10 @@
     //     line-height: 1.1em;
     //     margin: 0;
     // }
+
+    .hero-tagline {
+        margin-bottom: 2rem;
+    }
 
     .total-raised-container {
         // border: 1px solid white;

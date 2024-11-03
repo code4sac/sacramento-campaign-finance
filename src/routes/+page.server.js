@@ -46,7 +46,7 @@ export function load() {
     const election = {
         body: '',
         href: `/election/2024`,
-        name: 'Upcoming election',
+        name: 'Upcoming election (Nov. 5)',
         total: electionTotal,
         offices: ['Mayor', 'City councilmembers (D2)']
     };

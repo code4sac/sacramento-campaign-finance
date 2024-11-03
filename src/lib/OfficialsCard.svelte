@@ -23,7 +23,6 @@
         color: #fff;
         text-align: center;
         font-family: Inter;
-        font-size: 14px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -33,7 +32,6 @@
         color: #fff;
         text-align: left;
         font-family: Inter;
-        font-size: 14px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -42,7 +40,6 @@
         color: #fff;
         text-align: left;
         font-family: Inter;
-        font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
