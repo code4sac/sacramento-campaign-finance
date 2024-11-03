@@ -45,6 +45,10 @@
 </div>
 
 <style lang="scss">
+    .datagrid-title {
+        font-weight: 600;
+    }
+
     .contributors {
         display: grid;
         grid-template-columns: 1fr 1fr;

@@ -78,6 +78,9 @@
 </div>
 
 <style lang="scss">
+    .datagrid-title {
+        font-weight: 600;
+    }
     .legislator {
         margin: 0 auto;
     }
