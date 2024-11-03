@@ -1,43 +1,16 @@
 <script>
+    import _ from 'lodash'
     import Candidate from '$lib/Candidate.svelte';
     export let data = [];
 </script>
 
-<div>
-    <div class="hr-text">
-        {data.title}
-        {#if data.district}, District {data.district}{/if}
-    </div>
+<h2 class="mt-2 text-xl font-semibold">
+    {data.title}
+    {#if data.district}, District {data.district}{/if}
+</h2>
 
-    <div class="row">
-        {#each data.candidates as candidate}
-            <div class="candidate col-sm-6 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <Candidate {...candidate} />
-                    </div>
-                </div>
-            </div>
-        {/each}
-    </div>
+<div class="items-start justify-center gap-6 rounded-lg p-8 grid grid-cols-1 md:grid-cols-2">
+    {#each _.orderBy(data.candidates, ['total'], ['desc']) as candidate}
+        <Candidate {...candidate} />
+    {/each}
 </div>
-
-<style lang="scss">
-    .candidate:nth-child(n + 2) {
-        @media screen and (max-width: 576px) {
-            margin-top: 1rem;
-        }
-    }
-
-    // .candidate:nth-child(n+3) {
-    //   @media screen and (min-width: 768px) {
-    //     margin-top: 1rem;
-    //   }
-    // }
-
-    .candidate:nth-child(n + 4) {
-        @media screen and (min-width: 992px) {
-            margin-top: 1rem;
-        }
-    }
-</style>

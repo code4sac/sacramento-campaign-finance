@@ -1,76 +1,39 @@
-<script>
-    // import { IconBuildingSkyscraper, IconWorld } from "@tabler/icons-svelte";
-    // import { writable } from "svelte/store";
+<script lang="ts">
+	import { cn } from "$lib/utils.js";
 
-    // const langs = [
-    //     {
-    //         id: "en",
-    //         label: "English",
-    //     },
-    //     {
-    //         id: "es",
-    //         label: "Español",
-    //     },
-    // ];
-    // const lang = writable("en");
+	let className: string | undefined | null = undefined;
+	export { className as class };
+
+    let isDark = true
+
+    function onModeClick() {
+        const html = document.querySelector('html')
+        if (html.classList.contains('dark')) {
+            html.classList.remove('dark')
+            isDark = false
+        } else {
+            html.classList.add('dark')
+            isDark = true
+        }
+    }
 </script>
 
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">Sacramento Campaign Cash</a>
-        <div class="navbar-collapse">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/election/2024" target="_self"
-                        >Upcoming election</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/body/sac-city" target="_self"
-                        >City Council</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/body/sac-county" target="_self"
-                        >Board of Supervisors</a
-                    >
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- <div class="dropdown-container">
-            <div class="dropdown">
-                <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                    ><IconBuildingSkyscraper /> Sacramento, CA</a
-                >
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Sacramento, CA</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                    ><IconWorld /> English</a
-                >
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">English</a>
-                </div>
-            </div>
-        </div> -->
+<nav class={cn("container ml-0 my-6 flex flex-col md:flex-row items-center justify-between space-x-4 lg:space-x-6", className)}>
+    <a class="m-0 navbar-brand" href="/">Sac Campaign Cash</a>
+    <a class="m-0 nav-link" href="/election/2024" target="_self"
+        >Upcoming election</a
+    >
+    <a class="m-0 nav-link" href="/body/sac-city" target="_self"
+        >City Council</a
+    >
+    <a class="m-0 nav-link" href="/body/sac-county" target="_self"
+        >Board of Supervisors</a
+    >
+    <!-- <button on:click={onModeClick}>
+        {#if isDark}
+            ☀️
+        {:else}
+            ☽
+        {/if}
+    </button> -->
 </nav>
-
-<style lang="scss">
-    // .dropdown-container {
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
-
-    // .select-container {
-    //     display: flex;
-    //     justify-content: flex-end;
-    //     grid-column: 3;
-    // }
-    // .dropdown-container {
-    //     gap: 30px;
-    // }
-</style>

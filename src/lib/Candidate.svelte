@@ -1,6 +1,7 @@
 <script>
     import { orderBy } from 'lodash';
     import Contributors from './Contributors.svelte';
+    import * as Card from "$lib/components/ui/card";
     export let name = '';
     export let total = null;
     export let contributors = [];
@@ -12,32 +13,35 @@
 </script>
 
 <div class="candidate">
-    <div class="datagrid">
-        <div class="datagrid-item">
-            <div class="datagrid-title">Name</div>
-            <div class="datagrid-content">{name}</div>
-        </div>
-        <div class="datagrid-item">
-            <div class="datagrid-title">Total received</div>
-            <div class="datagrid-content">${total.toLocaleString('en-US')}</div>
-        </div>
-        <div class="datagrid-item">
-            <div class="datagrid-title">Contributors</div>
-            <div class="datagrid-content contributors">
-                <div class="contributor-count">
-                    {contributors.length.toLocaleString('en-US')}
-                </div>
-
-                {#if contributors.length > 0}
-                    <input type="checkbox" id={`${name}`} />
-                    <label for={`${name}`}>contributors</label>
-                    <div class="contributors-container">
-                        <Contributors data={sorted} />
-                    </div>
-                {/if}
+    <Card.Root>
+        <Card.Header>
+            <Card.Title>{name}</Card.Title>
+        </Card.Header>
+        <Card.Content>
+            <div class="datagrid-item">
+                <div class="datagrid-title">Total received</div>
+                <div class="datagrid-content">${total.toLocaleString('en-US')}</div>
             </div>
-        </div>
-    </div>
+
+            <div class="datagrid-item">
+                <div class="datagrid-title">Contributors</div>
+                <div class="datagrid-content contributors">
+                    <div class="contributor-count">
+                        {contributors.length.toLocaleString('en-US')}
+                    </div>
+    
+                    {#if contributors.length > 0}
+                        <input type="checkbox" id={`${name}`} />
+                        <label for={`${name}`}>contributors</label>
+                        <div class="contributors-container">
+                            <Contributors data={sorted} />
+                        </div>
+                    {/if}
+                </div>
+            </div>
+
+        </Card.Content>
+    </Card.Root>
 </div>
 
 <style lang="scss">

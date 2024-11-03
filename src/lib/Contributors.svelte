@@ -11,8 +11,8 @@
 </script>
 
 <div class="contributors">
-    <table class="contributors table">
-        <thead class="sticky-top">
+    <table class="contributors">
+        <thead class="sticky-top bg-neutral-50 dark:bg-neutral-950 py-1">
             <tr>
                 <th scope="col">Contributor</th>
                 <th scope="col">Location</th>
@@ -36,6 +36,3 @@
         </tbody>
     </table>
 </div>
-
-<style lang="scss">
-</style>

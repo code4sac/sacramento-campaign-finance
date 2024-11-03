@@ -1,31 +1,29 @@
 <script>
     import '../app.css';
-
-    import Footer from '$lib/Footer.svelte';
+    
     import Nav from '$lib/Nav.svelte';
-    // import '@tabler/core';
 </script>
 
 <Nav />
 <div>
-    <main>
+    <main class="p-3">
         <slot />
     </main>
 </div>
-<Footer />
+<footer>
+    Made by <a href="https://codeforsacramento.org/">Code for Sacramento</a>
+</footer>
 
-<style lang="scss">
-    div {
-        position: relative;
-    }
+<style>
     main {
-        // max-width: 90%;
         margin: 0 auto;
+        max-width: 960px;
     }
-
-    @media screen and (min-width: 700px) {
-        main {
-            // max-width: 90%;
-        }
+    footer {
+        font-size: 14px;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        text-align: center;
+        width: 100%;
     }
 </style>

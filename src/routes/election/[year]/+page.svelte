@@ -10,17 +10,11 @@
     <title>Following the money in Sacramento elections</title>
 </svelte:head>
 
-<section class="container-xl">
-    <div class="page-header">
-        <div class="row">
-            <div class="col">
-                <div class="page-pretitle">Upcoming elections</div>
-                <h1 class="page-title">Contests in {data.year}</h1>
-            </div>
-            <p>The data was retrieved on {generated}.</p>
-        </div>
-    </div>
 
+<h1 class="text-3xl font-bold">Upcoming election on Nov. 5</h1>
+<p class="mt-2 text-xl text-muted">The data was retrieved on {generated}.</p>
+
+<section class="container-xl">
     <div class="races">
         {#each races as race}
             <div class="row">
@@ -31,5 +25,3 @@
         {/each}
     </div>
 </section>
-
-<style lang="scss"></style>

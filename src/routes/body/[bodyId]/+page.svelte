@@ -19,48 +19,33 @@
     }
 </script>
 
-    <section class="container-xl">
-        <div class="page-header">
-          <div class="row">
-            <div class="col">
-              <div class="page-pretitle">Elected representatives</div>
-              <h1 class="page-title">{name}</h1>
-            </div>
-            <p>
-                The {legislators.length} members of the {name} have reported fundraising
-                {formatDollar(total)} in filings submitted to local officials.
-            </p>
-            <p>
-                Below is each elected representative and all of the people and
-                organizations who contributed to their campaigns for local elected office.
-            </p>
-            <p>
-                The data was retrieved on {formatGenerated(generated)}. Download it
-                <a
-                    href="/body/{bodyId}/download.csv"
-                    download="{bodyId}-{generated}.csv">here</a
-                >.
-            </p>
-          </div>
-        </div>
-    
-    {#if bodyId === "sac-city"}
-        <div class="sac-mayor-container row">
-            <Legislator {...legislators.find((d) => d.title === "Mayor")} />
-        </div>
-    {/if}
-    <div>
-        {#each legislators.filter((d) => d.title !== "Mayor") as legislator}
-            <div class="row">
-                <Legislator {...legislator} />
-            </div>
-        {/each}
-    </div>
-</section>
+<h1 class="text-3xl font-bold">{name}</h1>
 
-<style lang="scss">
-    ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-</style>
+<p class="mt-2 text-xl text-muted">
+    The {legislators.length} members of the {name} have reported fundraising
+    {formatDollar(total)} in filings submitted to local officials.
+</p>
+<p class="mt-2 text-xl text-muted">
+    Below is each elected representative and all of the people and
+    organizations who contributed to their campaigns for local elected office.
+</p>
+<p class="mt-2 text-xl text-muted">
+    The data was retrieved on {formatGenerated(generated)}. Download it
+    <a
+        href="/body/{bodyId}/download.csv"
+        download="{bodyId}-{generated}.csv">here</a
+    >.
+</p>
+    
+{#if bodyId === "sac-city"}
+    <div class="sac-mayor-container row">
+        <Legislator {...legislators.find((d) => d.title === "Mayor")} />
+    </div>
+{/if}
+<div>
+    {#each legislators.filter((d) => d.title !== "Mayor") as legislator}
+        <div class="row">
+            <Legislator {...legislator} />
+        </div>
+    {/each}
+</div>

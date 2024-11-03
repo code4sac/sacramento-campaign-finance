@@ -2,6 +2,7 @@
     import { sum } from 'd3-array';
     import { orderBy } from 'lodash';
     import { formatLegislatorAnchorId } from '$lib/format';
+    import * as Card from "$lib/components/ui/card";
     import Contributors from './Contributors.svelte';
     export let name = '';
     export let title = '';
@@ -21,19 +22,19 @@
     $: total = sum(contributors, (d) => d.amount);
 </script>
 
-<div class="hr-text">
-    <a id={formatLegislatorAnchorId(`${title}`)}>
-        {title}
-    </a>
-</div>
+<h2
+    class="mt-2 mb-2 text-xl font-semibold"
+    id={formatLegislatorAnchorId(`${title}`)}
+>
+    {title}
+</h2>
 
-<div class="legislator card col-sm-8">
-    <div class="card-body">
-        <div class="datagrid">
-            <div class="datagrid-item name-grid-item">
-                <div class="datagrid-title">Name</div>
-                <div class="datagrid-content">{name}</div>
-            </div>
+<div class="legislator my-2">
+    <Card.Root>
+        <Card.Header>
+            <Card.Title>{name}</Card.Title>
+        </Card.Header>
+        <Card.Content>
             <div class="datagrid-item total-received-grid-item">
                 <div class="datagrid-title">Total received</div>
                 <div class="datagrid-content">
@@ -72,8 +73,8 @@
                     {/if}
                 </div>
             </div>
-        </div>
-    </div>
+        </Card.Content>
+    </Card.Root>
 </div>
 
 <style lang="scss">
