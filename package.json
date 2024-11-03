@@ -15,10 +15,7 @@
   "keywords": [],
   "author": "@jeremiak",
   "license": "CC-BY-SA",
-  "dependencies": {
-    "@tabler/core": "^1.0.0-beta20",
-    "@tabler/icons-svelte": "^2.40.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@sveltejs/adapter-netlify": "^2.0.8",
     "@sveltejs/kit": "^1.27.2",

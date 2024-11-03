@@ -21,15 +21,15 @@
 
 <h1 class="text-3xl font-bold">{name}</h1>
 
-<p class="mt-2 text-xl text-muted">
+<p class="mt-2 text-xl text-neutral-950 dark:text-neutral-50">
     The {legislators.length} members of the {name} have reported fundraising
     {formatDollar(total)} in filings submitted to local officials.
 </p>
-<p class="mt-2 text-xl text-muted">
+<p class="mt-2 text-xl text-neutral-950 dark:text-neutral-50">
     Below is each elected representative and all of the people and
     organizations who contributed to their campaigns for local elected office.
 </p>
-<p class="mt-2 text-xl text-muted">
+<p class="mt-2 text-xl text-neutral-950 dark:text-neutral-50">
     The data was retrieved on {formatGenerated(generated)}. Download it
     <a
         href="/body/{bodyId}/download.csv"

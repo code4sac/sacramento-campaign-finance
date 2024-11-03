@@ -12,7 +12,7 @@
 
 
 <h1 class="text-3xl font-bold">Upcoming election on Nov. 5</h1>
-<p class="mt-2 text-xl text-muted">The data was retrieved on {generated}.</p>
+<p class="mt-2 text-xl text-neutral-950 dark:text-neutral-50">The data was retrieved on {generated}.</p>
 
 <section class="container-xl">
     <div class="races">

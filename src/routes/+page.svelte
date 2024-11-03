@@ -11,7 +11,7 @@
 
 
 <h1 class="text-3xl font-bold">Campaign Finance Data for Sacramento City and County</h1>
-<p class="mt-2 text-xl text-muted">Regularly updated campaign finance data for elected officials in the City and County of Sacramento, California. We don't manipulate the data except to normalize some name spellings so that our aggregations can be more accurate.</p>
+<p class="mt-2 text-xl text-neutral-950 dark:text-neutral-50">Regularly updated campaign finance data for elected officials in the City and County of Sacramento, California. We don't manipulate the data except to normalize some name spellings so that our aggregations can be more accurate.</p>
 
 <div class="items-start justify-center gap-6 rounded-lg p-8 grid grid-cols-1 lg:grid-cols-3">
     {#each totals as block}
