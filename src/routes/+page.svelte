@@ -128,11 +128,11 @@
 
     </div>
     <!-- blocks begin -->
-    <div class="officials-container">
+    <!-- <div class="officials-container">
         {#each $officialsData as card}
             <OfficialsCard {...card} />
         {/each}
-    </div>
+    </div> -->
 
     <div class="about-container">
         <h2 id="about-the-data">About the data</h2>
