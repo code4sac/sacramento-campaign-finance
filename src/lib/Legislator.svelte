@@ -8,18 +8,23 @@
     export let title = '';
     export let contributors = [];
     export let committees = [];
-    function filterOutZeros(contributors) {
-        return contributors
+    function filter (contributors) {
+        const aboveZero = contributors
             .filter((d) => d.amount !== 0)
             .filter((d) => d.amount > 0);
+        const committeeIds = committees.map(d => d.id)
+        const notSameCommittees = aboveZero.filter(d => {
+            return !committeeIds.includes(d.contributorCommitteeId)
+        })
+        return notSameCommittees
     }
     let sortKey = 'amount';
     $: sortOrder = sortKey === 'amount' ? 'desc' : 'asc';
-    $: filtered = filterOutZeros(contributors);
+    $: filtered = filter(contributors);
     $: sortKeys =
         sortKey === 'amount' ? ['amount', 'contributorLastName'] : [sortKey];
     $: sorted = orderBy(filtered, sortKeys, [sortOrder]);
-    $: total = sum(contributors, (d) => d.amount);
+    $: total = sum(filtered, (d) => d.amount);
 </script>
 
 <h2
