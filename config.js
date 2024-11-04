@@ -20,6 +20,10 @@ const config = {
           {
             id: "1426136",
             name: "STEINBERG FOR SACRAMENTO MAYOR 2024",
+          },
+          {
+            id: '1396270',
+            name: 'MAYOR DARRELL STEINBERG COMMITTEE FOR SACRAMENTO\'S FUTURE'
           }
         ],
       }, {
