@@ -11,7 +11,7 @@
 </svelte:head>
 
 
-<h1 class="text-3xl font-bold">Upcoming election on Nov. 5</h1>
+<h1 class="text-3xl font-bold">Most recent election on Nov. 5</h1>
 <p class="mt-2 text-xl text-neutral-950 dark:text-neutral-50">The data was retrieved on {generated}.</p>
 
 <section class="container-xl">
