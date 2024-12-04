@@ -19,9 +19,9 @@
 </script>
 
 <nav class={cn("container ml-0 my-6 flex flex-col md:flex-row items-center justify-between space-x-4 lg:space-x-6", className)}>
-    <a class="m-0 navbar-brand" href="/">Sac Campaign Cash</a>
+    <a class="m-0 navbar-brand" href="/">Sac Follows the Money</a>
     <a class="m-0 nav-link" href="/election/2024" target="_self"
-        >Upcoming election</a
+        >Most recent election</a
     >
     <a class="m-0 nav-link" href="/body/sac-city" target="_self"
         >City Council</a
