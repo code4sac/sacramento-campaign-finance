@@ -23,7 +23,12 @@ function aggregate(contributions) {
                 contributorState
             } = values[0];
             const amount = sum(values, (d) => d.amount);
-            const dates = values.map((d) => d.dates).flat();
+            const dates = values.map(d => {
+                return {
+                    amount: d.amount,
+                    date: d.date
+                }
+            })
 
             return {
                 contributorCommitteeId,

@@ -7,6 +7,8 @@
 
     const { bodyId, generated, legislators } = data;
 
+    console.log({ legislators })
+
     $: contributions = legislators.map((d) => d.contributors).flat();
     $: total = sum(contributions, (d) => d.amount);
 
