@@ -1,8 +1,11 @@
-import { sum } from 'd3-array';
+import _ from 'lodash'
+import { rollup, sum } from 'd3-array';
 
 import config from '$lib/../../config.js';
+import createContributorId from '$lib/contributorId.js';
 import { data, generated } from '$lib/data.json';
 import { formatLegislatorAnchorId } from '$lib/format';
+
 
 export function load() {
     const totals = config.bodies.map((b) => {
@@ -28,6 +31,43 @@ export function load() {
             total,
             offices
         };
+    });
+    const contributors = [];
+    const rolled = rollup(
+        data,
+        (values) => {
+            const {
+                contributorCommitteeId,
+                contributorFirstName,
+                contributorLastName,
+                contributorCity,
+                contributorZip,
+                contributorState
+            } = values[0];
+            const amount = sum(values, (d) => d.amount);
+            const dates = values.map(d => {
+                return {
+                    amount: d.amount,
+                    date: d.date
+                }
+            })
+
+            return {
+                contributorCommitteeId,
+                contributorFirstName,
+                contributorLastName,
+                contributorZip,
+                contributorCity,
+                contributorState,
+                amount,
+                dates
+            };
+        },
+        createContributorId
+    );
+
+    rolled.forEach((d) => {
+        contributors.push(d);
     });
 
     const upcomingElection = config.elections.find((d) => d.year === 2024);
@@ -70,6 +110,7 @@ export function load() {
     return {
         generated,
         officials,
-        totals: [election, ...totals]
+        totals: [election, ...totals],
+        contributors: _.orderBy(contributors, ['amount'], ['desc']).slice(0, 10)
     };
 }

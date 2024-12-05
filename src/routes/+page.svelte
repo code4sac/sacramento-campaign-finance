@@ -1,12 +1,13 @@
 <script>
     import { Button } from '$lib/components/ui/button';
     import * as Card from "$lib/components/ui/card";
-    import { formatDollar, formatGenerated, formatLegislatorAnchorId } from '$lib/format.js';
+    import Contributors from '$lib/Contributors.svelte';
+    import { formatDollar, formatGenerated } from '$lib/format.js';
 
     export let data = {};
 
     // totals raised
-    const { generated, totals } = data;
+    const { contributors, generated, totals } = data;
 </script>
 
 
@@ -42,6 +43,17 @@
     {/each}
 </div>
 
+<div class="contributors-container p-8">
+    <Card.Root>
+        <Card.Header>
+            <Card.Title>10 largest contributors</Card.Title>
+        </Card.Header>
+        <Card.Content>
+            <Contributors data={contributors} />
+        </Card.Content>
+    </Card.Root>
+</div>
+
 <div class="about-container">
     <h2 class="text-xl font-semibold" id="about-the-data">About the data</h2>
 
@@ -67,3 +79,10 @@
     <h3 class="mt-2 text-lg font-semibold">What if there's a mistake?</h3>
     <p class="text-lg">Please let us know by <a href="https://github.com/code4sac/sacramento-campaign-finance/issues/new">opening an issue on Github</a>.</p>
 </div>
+
+<style>
+    .contributors-container {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+</style>
