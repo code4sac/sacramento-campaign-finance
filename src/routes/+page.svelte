@@ -46,7 +46,7 @@
 <div class="contributors-container p-8">
     <Card.Root>
         <Card.Header>
-            <Card.Title>10 largest contributors</Card.Title>
+            <Card.Title>10 largest contributors since 2014</Card.Title>
         </Card.Header>
         <Card.Content>
             <Contributors data={contributors} />
