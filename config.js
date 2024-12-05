@@ -5,27 +5,34 @@ const config = {
     {
       body: "sac-city",
       name: "City Council",
-      legislators: [{
-        name: "Darrell Steinberg",
-        title: "Mayor",
-        committees: [
-          {
-            id: "1380886",
-            name: "STEINBERG FOR SACRAMENTO MAYOR 2016",
-          },
-          {
-            id: "1388020",
-            name: "STEINBERG FOR SACRAMENTO MAYOR 2020",
-          },
-          {
-            id: "1426136",
-            name: "STEINBERG FOR SACRAMENTO MAYOR 2024",
-          },
-          {
-            id: '1396270',
-            name: 'MAYOR DARRELL STEINBERG COMMITTEE FOR SACRAMENTO\'S FUTURE'
-          }
-        ],
+      legislators: [
+        {
+          name: 'Kevin McCarty',
+          title: "Mayor",
+          committees: [{
+            id: "1460934",
+            name: "MC CARTY FOR MAYOR 2024"
+          }]
+        // name: "Darrell Steinberg",
+        
+        // committees: [
+        //   {
+        //     id: "1380886",
+        //     name: "STEINBERG FOR SACRAMENTO MAYOR 2016",
+        //   },
+        //   {
+        //     id: "1388020",
+        //     name: "STEINBERG FOR SACRAMENTO MAYOR 2020",
+        //   },
+        //   {
+        //     id: "1426136",
+        //     name: "STEINBERG FOR SACRAMENTO MAYOR 2024",
+        //   },
+        //   {
+        //     id: '1396270',
+        //     name: 'MAYOR DARRELL STEINBERG COMMITTEE FOR SACRAMENTO\'S FUTURE'
+        //   }
+        // ],
       }, {
         name: "Lisa Kaplan",
         title: "City Council, District 1",
@@ -34,18 +41,23 @@ const config = {
           name: "LISA KAPLAN FOR CITY COUNCIL 2022",
         }],
       }, {
-        name: "Sean Loloee",
+        name: 'Roger Dickinson',
+        committees: [{
+          id: '1461133',
+          name: 'ROGER DICKINSON FOR CITY COUNCIL 2024'
+        }],
         title: "City Council, District 2",
-        committees: [
-          {
-            id: "1419806",
-            name: "SEAN LOLOEE FOR CITY COUNCIL 2020",
-          },
-          {
-            id: "1441736",
-            name: "SEAN LOLOEE FOR CITY COUNCIL 2024",
-          },
-        ],
+        // name: "Sean Loloee",
+        // committees: [
+        //   {
+        //     id: "1419806",
+        //     name: "SEAN LOLOEE FOR CITY COUNCIL 2020",
+        //   },
+        //   {
+        //     id: "1441736",
+        //     name: "SEAN LOLOEE FOR CITY COUNCIL 2024",
+        //   },
+        // ],
       }, {
         name: "Karina Talamantes",
         title: "City Council, District 3",
@@ -56,18 +68,30 @@ const config = {
           },
         ],
       }, {
-        name: "Katie Valenzuela",
+        name: "Phil Pluckebaum",
         title: "City Council, District 4",
         committees: [
           {
-            id: "1416339",
-            name: "KATIE VALENZUELA FOR SACRAMENTO CITY COUNCIL 2020",
+            id: '1457535',
+            name: 'PLUCKEBAUM FOR CITY COUNCIL 2024'
           },
           {
-            id: "1426389",
-            name: "KATIE VALENZUELA FOR SACRAMENTO CITY COUNCIL 2024",
-          },
-        ],
+            id: '1468558',
+            name: 'PLUCKEBAUM FOR CITY COUNCIL 2028'
+          }
+        ]
+        // name: "Katie Valenzuela",
+        // title: "City Council, District 4",
+        // committees: [
+        //   {
+        //     id: "1416339",
+        //     name: "KATIE VALENZUELA FOR SACRAMENTO CITY COUNCIL 2020",
+        //   },
+        //   {
+        //     id: "1426389",
+        //     name: "KATIE VALENZUELA FOR SACRAMENTO CITY COUNCIL 2024",
+        //   },
+        // ],
       }, {
         name: "Caity Maple",
         title: "City Council, District 5",
