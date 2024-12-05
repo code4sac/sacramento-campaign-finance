@@ -141,10 +141,6 @@
         display: block;
     }
 
-    .committees {
-        padding-left: 0.8rem;
-    }
-
     .committees-grid-item {
         grid-column: 1;
     }
